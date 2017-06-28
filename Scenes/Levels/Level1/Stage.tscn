@@ -17,6 +17,7 @@ radius = 10.0
 
 [node name="Stage" type="Node2D"]
 
+editor/display_folded = true
 script/script = ExtResource( 1 )
 
 [node name="ObjetsConstruction" type="TileMap" parent="."]
