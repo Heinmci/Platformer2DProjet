@@ -11,6 +11,8 @@ const WALK_MAX_SPEED = 200
 const STOP_FORCE = 1300
 const JUMP_SPEED = 400
 const JUMP_MAX_AIRBORNE_TIME = 0.2
+var popup_shown = false
+
 
 const SLIDE_STOP_VELOCITY = 1.0 # One pixel per second
 const SLIDE_STOP_MIN_TRAVEL = 1.0 # One pixel
@@ -21,9 +23,26 @@ var jumping = false
 
 var prev_jump_pressed = false
 
+func _input(event):
+	if (event.is_action_pressed("i_key")):
+		if (!popup_shown):
+			print("Toggled false")
+			var scene = load("res://Scenes/Inventory.tscn")
+			var node = scene.instance()
+			node.set_pos(get_node("Camera2D").get_global_pos())
+			
+			get_parent().add_child(node)
+			get_parent().get_node("Inventory").popup()
+			popup_shown = true
+		else:
+			print("Toggled true")
+			get_parent().get_node("Inventory").queue_free()
+			popup_shown = false
+		#get_tree().change_scene("res://Scenes/Inventory.tscn")
 
 func _fixed_process(delta):
-	# Create forces
+
+	
 	var force = Vector2(0, GRAVITY)
 	
 	var walk_left = Input.is_action_pressed("ui_left")
@@ -114,3 +133,4 @@ func _fixed_process(delta):
 
 func _ready():
 	set_fixed_process(true)
+	set_process_input(true)
