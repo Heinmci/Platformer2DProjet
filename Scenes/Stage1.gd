@@ -12,13 +12,13 @@ func _ready():
 	pass
 	
 func _process(delta):
-	print("test")
 	if (Input.is_action_pressed("i_key")):
 		if (!popup_shown):
 			print("Toggled false")
 			var scene = load("res://Scenes/Inventory.tscn")
 			var node = scene.instance()
 			node.set_pos(get_pos())
+			
 			get_parent().add_child(node)
 			get_parent().get_node("Inventory").popup_centered()
 			popup_shown = true

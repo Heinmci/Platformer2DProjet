@@ -25,12 +25,12 @@ points = Vector2Array( -25.3142, 24.8477, 24.7607, -25.0772, 25.0626, 24.9762 )
 custom_solver_bias = 0.0
 extents = Vector2( 25, 25 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 96, 30 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 93, 30 )
@@ -83,9 +83,11 @@ region_rect = Rect2( 50, 0, 50, 50 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor"]
 
+transform/pos = Vector2( -0.89991, 0.632059 )
+transform/scale = Vector2( 0.8125, 0.828125 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 0.747253, 0, 0, 0.733154, 2.46153, 1.81132 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -96,6 +98,8 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
 
+transform/pos = Vector2( 2.46153, 1.81132 )
+transform/scale = Vector2( 0.747253, 0.733154 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
@@ -187,7 +191,7 @@ texture = ExtResource( 2 )
 [node name="StaticBody2D" type="StaticBody2D" parent="StaticPlatform"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 10 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -199,7 +203,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatform/StaticBody2D"]
 
-shape = SubResource( 10 )
+shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
 
@@ -213,7 +217,7 @@ texture = ExtResource( 3 )
 
 transform/pos = Vector2( 15.0316, -1.67023 )
 input/pickable = false
-shapes/0/shape = SubResource( 9 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -15.9999, 2 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -226,7 +230,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform/StaticBody2D"]
 
 transform/pos = Vector2( -15.9999, 2 )
-shape = SubResource( 9 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
 
