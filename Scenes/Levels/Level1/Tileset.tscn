@@ -1,0 +1,287 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://Images/tileset.png" type="Texture" id=1]
+[ext_resource path="res://Images/one_way_platform.png" type="Texture" id=2]
+[ext_resource path="res://Images/moving_platform.png" type="Texture" id=3]
+[ext_resource path="res://Images/tiles_demo.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 25, 25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 25, 25 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -25.3142, 24.8477, 24.7607, -25.0772, 25.0626, 24.9762 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 25, 25 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 96, 30 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 93, 30 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 63, 59 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 28, 25 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Wall" type="Sprite" parent="."]
+
+transform/pos = Vector2( 445.604, 324.762 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -0.663422 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+
+transform/pos = Vector2( 0, -0.663422 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Floor" type="Sprite" parent="."]
+
+transform/pos = Vector2( 251.753, 75.526 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 50, 0, 50, 50 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 271.321, 221.579 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 101, 0, 50, 50 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+
+build_mode = 0
+polygon = Vector2Array( -25.3142, 24.8477, 24.7607, -25.0772, 25.0626, 24.9762 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="Sprite 2" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 299.961, 309.005 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 148, 0, 50, 50 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite 2"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite 2/StaticBody2D"]
+
+build_mode = 0
+polygon = Vector2Array(  )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="Sprite 3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 165.808, 342.166 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 200, 0, 50, 50 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite 3"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite 3/StaticBody2D"]
+
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[node name="StaticPlatform" type="Sprite" parent="."]
+
+transform/pos = Vector2( 822.17, 74.1808 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticPlatform"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 10 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatform/StaticBody2D"]
+
+shape = SubResource( 10 )
+trigger = false
+_update_shape_index = 0
+
+[node name="MovingPlatform" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 708.258, 281.262 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MovingPlatform"]
+
+transform/pos = Vector2( 15.0316, -1.67023 )
+input/pickable = false
+shapes/0/shape = SubResource( 9 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -15.9999, 2 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform/StaticBody2D"]
+
+transform/pos = Vector2( -15.9999, 2 )
+shape = SubResource( 9 )
+trigger = false
+_update_shape_index = 0
+
+[node name="LongFloor" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 100.992, 165.807 )
+texture = ExtResource( 4 )
+region = true
+region_rect = Rect2( 0, 0, 125, 120 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LongFloor"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LongFloor/StaticBody2D"]
+
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
+
+[node name="LongFloor2" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 108.137, 39.8052 )
+texture = ExtResource( 4 )
+region = true
+region_rect = Rect2( 390, 0, 55, 50 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LongFloor2"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 8 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LongFloor2/StaticBody2D"]
+
+shape = SubResource( 8 )
+trigger = false
+_update_shape_index = 0
+
+

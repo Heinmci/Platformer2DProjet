@@ -1,0 +1,19 @@
+[gd_scene format=1]
+
+[node name="Label" type="Label"]
+
+rect/rotation = 0.154016
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 426.0
+margin/top = 128.0
+margin/right = 691.0
+margin/bottom = 142.0
+text = "Liste d'options"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

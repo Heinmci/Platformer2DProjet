@@ -1,0 +1,134 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://Images/Background.png" type="Texture" id=1]
+[ext_resource path="res://Script/Gameplay.gd" type="Script" id=2]
+[ext_resource path="res://Images/Play.PNG" type="Texture" id=3]
+[ext_resource path="res://Images/PlayHover.PNG" type="Texture" id=4]
+[ext_resource path="res://Script/Play.gd" type="Script" id=5]
+[ext_resource path="res://Images/LoadGame.PNG" type="Texture" id=6]
+[ext_resource path="res://Images/LoadGameHover.PNG" type="Texture" id=7]
+[ext_resource path="res://Script/LoadGame.gd" type="Script" id=8]
+[ext_resource path="res://Images/Options.PNG" type="Texture" id=9]
+[ext_resource path="res://Images/OptionsHover.PNG" type="Texture" id=10]
+[ext_resource path="res://Script/Options.gd" type="Script" id=11]
+[ext_resource path="res://Images/Quit.PNG" type="Texture" id=12]
+[ext_resource path="res://Images/QuitHover.PNG" type="Texture" id=13]
+[ext_resource path="res://Script/Quit.gd" type="Script" id=14]
+[ext_resource path="res://Images/GamePlay.PNG" type="Texture" id=15]
+
+[node name="Background" type="TextureFrame"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1045.0
+margin/bottom = 670.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+script/script = ExtResource( 2 )
+
+[node name="Play" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 446.0
+margin/top = 234.0
+margin/right = 579.0
+margin/bottom = 286.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+textures/hover = ExtResource( 4 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 5 )
+
+[node name="LoadGame" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 320.0
+margin/top = 303.0
+margin/right = 724.0
+margin/bottom = 355.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 6 )
+textures/hover = ExtResource( 7 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 8 )
+
+[node name="Options" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 435.0
+margin/top = 372.0
+margin/right = 603.0
+margin/bottom = 419.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 11 )
+
+[node name="Quit" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 429.0
+margin/top = 434.0
+margin/right = 608.0
+margin/bottom = 477.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 12 )
+textures/hover = ExtResource( 13 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 14 )
+
+[node name="Gameplay" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 185.0
+margin/top = 115.0
+margin/right = 826.0
+margin/bottom = 177.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 15 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[connection signal="pressed" from="Play" to="Play" method="_on_Play_pressed"]
+
+[connection signal="pressed" from="LoadGame" to="LoadGame" method="_on_LoadGame_pressed"]
+
+[connection signal="pressed" from="Options" to="Options" method="_on_Options_pressed"]
+
+[connection signal="pressed" from="Quit" to="Quit" method="_on_Quit_pressed"]
+
+
