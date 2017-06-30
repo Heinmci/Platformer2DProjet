@@ -6,7 +6,7 @@ export var value = 1
 
 
 func _on_body_enter( body ):
-	if (not taken and body extends preload("res://Scenes/Levels/Level1/Player.gd")):
+	if (not taken and body extends preload("res://Script/Player.gd")):
 		get_node("AnimJeton").play("taken")
 		taken = true
 
