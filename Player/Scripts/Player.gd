@@ -10,13 +10,17 @@ const TOP_JUMP_TIME = 0.1 # in seconds
 
 var anim = ""
 var siding_left = false
+
+var popup_shown = false
+
  
 # Start
 func _ready():
     # Set player properties
-    acceleration = 1000
-    top_move_speed = 150
-    top_jump_speed = 400
+	set_process_input(true)
+	acceleration = 1000
+	top_move_speed = 150
+	top_jump_speed = 400
  
 # Apply force
 func apply_force(state):

@@ -1,24 +1,25 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Scenes/Stage1.gd" type="Script" id=1]
 [ext_resource path="res://Objets/tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://Images/ennemi.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Levels/Level1/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Images/ocean_beach.png" type="Texture" id=5]
-[ext_resource path="res://Script/Monnaie.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/Levels/Level1/Jeton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objets/tileset2.xml" type="TileSet" id=9]
+[ext_resource path="res://Images/backgroundLevel1.png" type="Texture" id=4]
+[ext_resource path="res://Script/Monnaie.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Levels/Level1/Jeton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objets/tileset2.xml" type="TileSet" id=8]
+[ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=9]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 24.0373, 11.3548 )
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 23.7674
 
 [node name="Stage" type="Node2D"]
 
@@ -27,10 +28,9 @@ script/script = ExtResource( 1 )
 [node name="ObjetsConstruction" type="TileMap" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( -457.09, 250.971 )
 mode = 0
 tile_set = ExtResource( 2 )
-cell/size = Vector2( 32, 32 )
+cell/size = Vector2( 50, 50 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
@@ -46,9 +46,12 @@ tile_data = IntArray( 65535, 0, 0, 0, 1, 4, 2, 4, 3, 4, 4, 4, 5, 4, 6, 4, 7, 4, 
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ObjetsConstruction"]
 
+editor/display_folded = true
+transform/pos = Vector2( 8.60314, 346.021 )
+transform/scale = Vector2( 1.43892, 11.8132 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1.43023, 0, 0, 2.87237, -5.59302, 3.05593 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -59,6 +62,8 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjetsConstruction/StaticBody2D"]
 
+transform/pos = Vector2( -5.59302, 3.05593 )
+transform/scale = Vector2( 1.43023, 2.87237 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -68,7 +73,7 @@ _update_shape_index = 0
 editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 3.69231, 0, 0, 4.92308, -318.649, 396.596 )
+shapes/0/transform = Matrix32( 1.31139, 0, 0, 0.842943, 100.788, 280 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -88,23 +93,19 @@ velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 
-[node name="Sprite" type="Sprite" parent="RigidBody2D"]
-
-transform/pos = Vector2( -314.939, 378.997 )
-transform/scale = Vector2( 1, 0.867714 )
-texture = ExtResource( 3 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 
-transform/pos = Vector2( -318.649, 396.596 )
-transform/scale = Vector2( 3.69231, 4.92308 )
+transform/pos = Vector2( 100.788, 280 )
+transform/scale = Vector2( 1.31139, 0.842943 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
 
-transform/pos = Vector2( -315.049, 556.341 )
+transform/pos = Vector2( 100, 280 )
+transform/scale = Vector2( 1, 0.867714 )
+texture = ExtResource( 3 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -121,7 +122,8 @@ scroll/ignore_camera_zoom = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-transform/pos = Vector2( 6.18176, -71.0901 )
+editor/display_folded = true
+transform/pos = Vector2( 0, 40 )
 motion/scale = Vector2( 1, 1 )
 motion/offset = Vector2( 0, 0 )
 motion/mirroring = Vector2( 1280, 0 )
@@ -132,16 +134,15 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -506.0
-margin/top = 291.0
-margin/right = 1013.0
-margin/bottom = 1117.0
-texture = ExtResource( 5 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1519.0
+margin/bottom = 1440.0
+texture = ExtResource( 4 )
 stretch_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -160,61 +161,62 @@ margin/bottom = 172.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-script/script = ExtResource( 6 )
+script/script = ExtResource( 5 )
 
 [node name="Jetons" type="Node" parent="."]
 
 editor/display_folded = true
 
-[node name="Jeton" parent="Jetons" instance=ExtResource( 7 )]
+[node name="Jeton" parent="Jetons" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( -388.525, 765.69 )
+transform/pos = Vector2( 70, 830 )
 
-[node name="Jeton 2" parent="Jetons" instance=ExtResource( 7 )]
+[node name="Jeton 2" parent="Jetons" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( -356.716, 765.69 )
+transform/pos = Vector2( 100, 830 )
 
-[node name="Jeton 3" parent="Jetons" instance=ExtResource( 7 )]
+[node name="Jeton 3" parent="Jetons" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( -320.363, 765.69 )
+transform/pos = Vector2( 130, 830 )
 
-[node name="Jeton 4" parent="Jetons" instance=ExtResource( 7 )]
+[node name="Jeton 4" parent="Jetons" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( -286.282, 765.69 )
+transform/pos = Vector2( 160, 830 )
 
-[node name="Jeton 5" parent="Jetons" instance=ExtResource( 7 )]
+[node name="Jeton 5" parent="Jetons" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 696.405, 905.734 )
+transform/pos = Vector2( 1780, 1030 )
 
-[node name="Jeton 6" parent="Jetons" instance=ExtResource( 7 )]
+[node name="Jeton 6" parent="Jetons" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 726.937, 907.669 )
+transform/pos = Vector2( 1810, 1030 )
 
-[node name="Jeton 7" parent="Jetons" instance=ExtResource( 7 )]
+[node name="Jeton 7" parent="Jetons" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 761.83, 906.137 )
+transform/pos = Vector2( 1840, 1030 )
 
-[node name="Jeton 8" parent="Jetons" instance=ExtResource( 7 )]
+[node name="Jeton 8" parent="Jetons" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 799.378, 906.137 )
+transform/pos = Vector2( 1870, 1030 )
 
 [node name="Ennemis" type="Node" parent="."]
 
 editor/display_folded = true
 
-[node name="Ennemi1" parent="Ennemis" instance=ExtResource( 8 )]
+[node name="Ennemi1" parent="Ennemis" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 221.663, 773.712 )
+transform/pos = Vector2( 700, 830 )
+transform/scale = Vector2( 1, 0.837654 )
 
-[node name="Ennemi2" parent="Ennemis" instance=ExtResource( 8 )]
+[node name="Ennemi2" parent="Ennemis" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 885.257, 901.148 )
+transform/pos = Vector2( 2090, 1030 )
 
 [node name="ObjetsConstruction2" type="TileMap" parent="."]
 
 transform/pos = Vector2( -356.452, 304 )
 mode = 0
-tile_set = ExtResource( 9 )
+tile_set = ExtResource( 8 )
 cell/size = Vector2( 64, 64 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -228,5 +230,27 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 655372, 5, 655378, 7 )
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 9 )
+cell/size = Vector2( 50, 50 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 851968, 536870912, 917504, 536870912, 983040, 536870912, 1048576, 536870912 )
+
+[node name="Player" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 168.145, 754.601 )
 
 
