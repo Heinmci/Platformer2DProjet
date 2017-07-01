@@ -29,14 +29,14 @@ func _input(event):
 			print("Toggled false")
 			var scene = load("res://Scenes/Inventory.tscn")
 			var node = scene.instance()
-			node.set_pos(get_node("Camera2D").get_global_pos())
+			#node.set_pos(get_node("Camera2D").get_global_pos())
 			
-			get_parent().add_child(node)
-			get_parent().get_node("Inventory").popup()
+			get_node("Camera2D").add_child(node)
+			#get_parent().get_node("Inventory").popup()
 			popup_shown = true
 		else:
 			print("Toggled true")
-			get_parent().get_node("Inventory").queue_free()
+			get_node("Camera2D/Inventory").queue_free()
 			popup_shown = false
 		#get_tree().change_scene("res://Scenes/Inventory.tscn")
 
