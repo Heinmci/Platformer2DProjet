@@ -1,21 +1,19 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Scenes/Levels/Level1/Player.gd" type="Script" id=1]
-[ext_resource path="res://Images/Person.png" type="Texture" id=2]
+[ext_resource path="res://Player/Images/character.png" type="Texture" id=2]
 
-
-
-[sub_resource type="RayShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-length = 39.5914
+radius = 45.0
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 
 transform/pos = Vector2( 3, -27 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( -0.600549, 0, 0, 0.810544, -0.891006, -15.3522 )
+shapes/0/transform = Matrix32( -0.354305, 0, 0, 0.7025, -2.6026, -8.3706 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -30,8 +28,8 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.891006, -15.3522 )
-transform/scale = Vector2( -0.600549, 0.810544 )
+transform/pos = Vector2( -2.6026, -8.3706 )
+transform/scale = Vector2( -0.354305, 0.7025 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
