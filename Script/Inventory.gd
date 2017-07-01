@@ -13,7 +13,7 @@ func _ready():
 	set_process_input(true)
 	#get_tree().set_pause(true)
 	determine_inventory_content()
-	var test = preload("res://Images/bullet.png")
+	var test = preload("res://Images/apple.png")
 	get_node("Items").add_item("Apple",test,true)
 	test = preload("res://Images/coin.png")
 	get_node("Items").add_item("Coin",test,true)
