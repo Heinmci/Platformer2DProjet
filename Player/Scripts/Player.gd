@@ -9,24 +9,6 @@ var jump_time = 0
 const TOP_JUMP_TIME = 0.1 # in seconds
 var popup_shown = false
  
-func _input(event):
-	if (event.is_action_pressed("i_key")):
-		if (!popup_shown):
-			print("Toggled false")
-			var scene = load("res://Scenes/Inventory.tscn")
-			var node = scene.instance()
-			#node.set_pos(get_node("Camera2D").get_global_pos())
-			
-			get_node("Camera2D").add_child(node)
-			#get_parent().get_node("Inventory").popup()
-			popup_shown = true
-			#get_tree().set_pause(true)
-		else:
-			print("Toggled true")
-			get_node("Camera2D/Inventory").queue_free()
-			popup_shown = false
-			#get_tree().set_pause(false)
-		#get_tree().change_scene("res://Scenes/Inventory.tscn")
 # Start
 func _ready():
     # Set player properties

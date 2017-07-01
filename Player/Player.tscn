@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Images/character.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Inventory.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -68,6 +69,8 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
+
+[node name="Inventory" parent="Camera2D" instance=ExtResource( 3 )]
 
 [node name="ground_check" type="Area2D" parent="."]
 

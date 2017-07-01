@@ -4,7 +4,7 @@
 
 [node name="Inventory" type="Panel"]
 
-process/pause_mode = 1
+process/pause_mode = 2
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
