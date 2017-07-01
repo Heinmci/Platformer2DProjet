@@ -1,9 +1,26 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Tileset/mytiles.res" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Levels/Level1/Jeton2.tscn" type="PackedScene" id=3]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+var coins_total = 0
+var coins_collected = 0
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+"
+
+[node name="Stage" type="Node2D"]
+
+editor/display_folded = true
+script/script = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 
@@ -29,5 +46,90 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 121.884, 254.848 )
+
+[node name="Coins" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="Jeton1" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 177.652, 327.741 )
+
+[node name="Jeton2" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 224.626, 283.731 )
+
+[node name="Jeton3" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 271.293, 231.156 )
+
+[node name="Jeton4" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 320.293, 181.156 )
+
+[node name="Jeton5" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 469.294, 135.156 )
+
+[node name="Jeton6" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 530.294, 135.156 )
+
+[node name="Jeton7" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 675.294, 180.156 )
+
+[node name="Jeton8" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 533.294, 332.156 )
+
+[node name="Jeton9" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 474.294, 331.156 )
+
+[node name="Jeton10" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 418.294, 332.156 )
+
+[node name="Jeton11" parent="Coins" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 362.293, 333.156 )
+
+[node name="CoinsView" type="CanvasLayer" parent="."]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="CoinsCollected" type="Label" parent="CoinsView"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 7.0
+margin/top = 9.0
+margin/right = 54.0
+margin/bottom = 23.0
+text = "Coins : "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CoinsTotal" type="Label" parent="CoinsView"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 63.0
+margin/top = 9.0
+margin/right = 103.0
+margin/bottom = 23.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

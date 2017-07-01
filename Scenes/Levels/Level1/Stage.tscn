@@ -1,15 +1,14 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://Scenes/Stage1.gd" type="Script" id=1]
 [ext_resource path="res://Objets/tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://Images/ennemi.png" type="Texture" id=3]
 [ext_resource path="res://Images/backgroundLevel1.png" type="Texture" id=4]
-[ext_resource path="res://Script/Monnaie.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Levels/Level1/Jeton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objets/tileset2.xml" type="TileSet" id=8]
-[ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=9]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objets/tileset2.xml" type="TileSet" id=6]
+[ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=7]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/Level1/Jeton2.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -109,6 +108,7 @@ texture = ExtResource( 3 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -141,74 +141,52 @@ margin/bottom = 1440.0
 texture = ExtResource( 4 )
 stretch_mode = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CoinsView" type="CanvasLayer" parent="."]
 
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="CoinsCollected" type="Label" parent="CoinsView"]
 
-focus/ignore_mouse = false
+focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-size_flags/vertical = 2
+size_flags/vertical = 0
 margin/left = 8.0
 margin/top = 65.0
-margin/right = 137.0
-margin/bottom = 172.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-script/script = ExtResource( 5 )
+margin/right = 55.0
+margin/bottom = 79.0
+text = "Coins : "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
-[node name="Jetons" type="Node" parent="."]
+[node name="CoinsTotal" type="Label" parent="CoinsView"]
 
-editor/display_folded = true
-
-[node name="Jeton" parent="Jetons" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 70, 830 )
-
-[node name="Jeton 2" parent="Jetons" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 100, 830 )
-
-[node name="Jeton 3" parent="Jetons" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 130, 830 )
-
-[node name="Jeton 4" parent="Jetons" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 160, 830 )
-
-[node name="Jeton 5" parent="Jetons" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 1780, 1030 )
-
-[node name="Jeton 6" parent="Jetons" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 1810, 1030 )
-
-[node name="Jeton 7" parent="Jetons" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 1840, 1030 )
-
-[node name="Jeton 8" parent="Jetons" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 1870, 1030 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 64.0
+margin/top = 65.0
+margin/right = 104.0
+margin/bottom = 79.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="Ennemis" type="Node" parent="."]
 
 editor/display_folded = true
 
-[node name="Ennemi1" parent="Ennemis" instance=ExtResource( 7 )]
+[node name="Ennemi1" parent="Ennemis" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 700, 830 )
 transform/scale = Vector2( 1, 0.837654 )
 
-[node name="Ennemi2" parent="Ennemis" instance=ExtResource( 7 )]
+[node name="Ennemi2" parent="Ennemis" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2090, 1030 )
 
@@ -216,7 +194,7 @@ transform/pos = Vector2( 2090, 1030 )
 
 transform/pos = Vector2( -356.452, 304 )
 mode = 0
-tile_set = ExtResource( 8 )
+tile_set = ExtResource( 6 )
 cell/size = Vector2( 64, 64 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -234,7 +212,7 @@ tile_data = IntArray( 655372, 5, 655378, 7 )
 [node name="TileMap" type="TileMap" parent="."]
 
 mode = 0
-tile_set = ExtResource( 9 )
+tile_set = ExtResource( 7 )
 cell/size = Vector2( 50, 50 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -249,8 +227,45 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 851968, 536870912, 917504, 536870912, 983040, 536870912, 1048576, 536870912 )
 
-[node name="Player" parent="." instance=ExtResource( 10 )]
+[node name="Player" parent="." instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 168.145, 754.601 )
+transform/pos = Vector2( 168.145, 570 )
+
+[node name="Coins" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="Jeton1" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 77.2056, 830 )
+transform/rot = 130.965
+
+[node name="Jeton2" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 110, 830 )
+
+[node name="Jeton3" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 145, 830 )
+
+[node name="Jeton4" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 178, 830 )
+
+[node name="Jeton5" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2170, 930 )
+
+[node name="Jeton6" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2230, 930 )
+
+[node name="Jeton7" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2280, 930 )
+
+[node name="Jeton8" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2320, 930 )
 
 

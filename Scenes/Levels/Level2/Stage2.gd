@@ -5,7 +5,6 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
-	print(get_owner().get_name())
-	if get_owner() != null :
-		get_owner().jetons_total += value
-		
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass

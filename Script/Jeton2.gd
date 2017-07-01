@@ -1,10 +1,17 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+export var value = 1
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+	if get_owner() != null:
+		get_owner().coins_total += value
+		get_owner().get_node("CoinsView/CoinsTotal").set_text(str(" / ",get_owner().coins_total))
+		
+	get_node("Area2D").connect("body_enter", self, "_collect_coin")
+	
+	
+func _collect_coin( body ):
+	if get_owner() != null:
+		get_owner().coins_collected += value
+		get_owner().get_node("CoinsView/CoinsCollected").set_text(str("Coins : ",get_owner().coins_collected))	
+	queue_free()

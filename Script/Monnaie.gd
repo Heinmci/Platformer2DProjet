@@ -5,5 +5,5 @@ extends RichTextLabel
 # var b = "textvar"
 
 func _ready():
-	self.add_text("MONNAIE: ")
+	self.add_text("")
 
