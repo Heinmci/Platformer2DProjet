@@ -64,6 +64,7 @@ autoplay = "AnimJeton"
 
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1.21035, 0, 0, 1.22693, 0.301655, -0.856113 )
