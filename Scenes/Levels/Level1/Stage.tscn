@@ -1,27 +1,21 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Scenes/Stage1.gd" type="Script" id=1]
 [ext_resource path="res://Objets/tileset.xml" type="TileSet" id=2]
-[ext_resource path="res://Images/ennemi.png" type="Texture" id=3]
-[ext_resource path="res://Images/backgroundLevel1.png" type="Texture" id=4]
-[ext_resource path="res://Script/Time.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objets/tileset2.xml" type="TileSet" id=7]
-[ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=8]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Levels/Level1/Jeton2.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/moving_platform.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sounds/sound_level1.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Images/backgroundLevel1.png" type="Texture" id=3]
+[ext_resource path="res://Script/Time.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objets/tileset2.xml" type="TileSet" id=6]
+[ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=7]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/Level1/Jeton2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/moving_platform.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/sound_level1.ogg" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24.0373, 11.3548 )
-
-[sub_resource type="CircleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 23.7674
 
 [node name="Stage" type="Node2D"]
 
@@ -70,45 +64,6 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-editor/display_folded = true
-input/pickable = false
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1.31139, 0, 0, 0.842943, 240, 280 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
-damp_override/linear = -1.0
-damp_override/angular = -1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-
-transform/pos = Vector2( 240, 280 )
-transform/scale = Vector2( 1.31139, 0.842943 )
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Sprite" type="Sprite" parent="RigidBody2D"]
-
-transform/pos = Vector2( 240, 280 )
-transform/scale = Vector2( 1, 0.867714 )
-texture = ExtResource( 3 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 editor/display_folded = true
@@ -141,11 +96,12 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 1519.0
 margin/bottom = 1440.0
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 stretch_mode = 2
 
 [node name="CoinsView" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -194,7 +150,7 @@ margin/bottom = 61.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-script/script = ExtResource( 5 )
+script/script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="CoinsView/Time"]
 
@@ -207,20 +163,28 @@ autostart = true
 
 editor/display_folded = true
 
-[node name="Ennemi1" parent="Ennemis" instance=ExtResource( 6 )]
+[node name="Ennemi1" parent="Ennemis" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 700, 830 )
 transform/scale = Vector2( 1, 0.837654 )
 
-[node name="Ennemi2" parent="Ennemis" instance=ExtResource( 6 )]
+[node name="Ennemi2" parent="Ennemis" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2090, 1030 )
+
+[node name="Ennemi3" parent="Ennemis" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 230, 580 )
+
+[node name="Ennemy4" parent="Ennemis" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 160, 285 )
 
 [node name="ObjetsConstruction2" type="TileMap" parent="."]
 
 transform/pos = Vector2( -356.452, 304 )
 mode = 0
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 6 )
 cell/size = Vector2( 64, 64 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -238,7 +202,7 @@ tile_data = IntArray( 655372, 5, 655378, 7 )
 [node name="TileMap" type="TileMap" parent="."]
 
 mode = 0
-tile_set = ExtResource( 8 )
+tile_set = ExtResource( 7 )
 cell/size = Vector2( 50, 50 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -253,150 +217,151 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 851968, 536870912, 917504, 536870912, 983040, 536870912, 1048576, 536870912 )
 
-[node name="Player" parent="." instance=ExtResource( 9 )]
+[node name="Player" parent="." instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 168.145, 570 )
+transform/pos = Vector2( 100, 567.775 )
 
 [node name="Coins" type="Node2D" parent="."]
 
-[node name="Jeton1" parent="Coins" instance=ExtResource( 10 )]
+editor/display_folded = true
+
+[node name="Jeton1" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 77.2056, 780 )
 transform/rot = 130.965
 
-[node name="Jeton2" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton2" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 110, 780 )
 
-[node name="Jeton3" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton3" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 145, 780 )
 
-[node name="Jeton4" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton4" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 178, 780 )
 
-[node name="Jeton5" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton5" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 2170, 930 )
 
-[node name="Jeton6" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton6" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 2230, 930 )
 
-[node name="Jeton7" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton7" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 2280, 930 )
 
-[node name="Jeton8" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton8" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 2320, 930 )
 
-[node name="Jeton9" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton9" parent="Coins" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 64.2932, 285.155 )
+transform/pos = Vector2( 64.2932, 220 )
 
-[node name="Jeton10" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton10" parent="Coins" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 97.2932, 285.155 )
+transform/pos = Vector2( 97.2932, 220 )
 
-[node name="Jeton11" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton11" parent="Coins" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 130.293, 285.155 )
+transform/pos = Vector2( 130.293, 220 )
 
-[node name="Jeton12" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton12" parent="Coins" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 165.293, 285.155 )
+transform/pos = Vector2( 165.293, 220 )
 
-[node name="Jeton13" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton13" parent="Coins" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 465.293, 297.155 )
+transform/pos = Vector2( 465.293, 295 )
 
-[node name="Jeton14" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton14" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 502.293, 296.155 )
 
-[node name="Jeton15" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton15" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 710, 370 )
 
-[node name="Jeton16" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton16" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 740, 370 )
 
-[node name="Jeton17" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton17" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 840, 460 )
 
-[node name="Jeton18" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton18" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 870, 460 )
 
-[node name="Jeton19" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton19" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 970, 540 )
 
-[node name="Jeton20" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton20" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 1000, 540 )
 
-[node name="Jeton21" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton21" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 1120, 640 )
 
-[node name="Jeton22" parent="Coins" instance=ExtResource( 10 )]
+[node name="Jeton22" parent="Coins" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 1150, 640 )
 
 [node name="Platforms" type="Node2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 500, 550 )
 
-[node name="moving_platform" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( -111.216, -7.83563 )
 transform/scale = Vector2( 0.986202, 1 )
 
-[node name="moving_platform 2" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform 2" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 70, -8 )
 
-[node name="moving_platform 3" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform 3" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( -111, -179 )
 
-[node name="moving_platform 4" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform 4" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 69, -178 )
 
-[node name="moving_platform 5" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform 5" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( -13, -95 )
 
-[node name="moving_platform 6" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform 6" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 222, -95 )
 
-[node name="moving_platform 7" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform 7" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 353, -8 )
 
-[node name="moving_platform 8" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform 8" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 489, 81 )
 
-[node name="moving_platform 9" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform 9" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 646.726, 152.932 )
 
-[node name="moving_platform 10" parent="Platforms" instance=ExtResource( 11 )]
+[node name="moving_platform 10" parent="Platforms" instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 789, 221 )
 
 [node name="Music" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 12 )
+stream/stream = ExtResource( 11 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
