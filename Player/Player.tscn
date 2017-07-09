@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/Images/player_sprite.png" type="Texture" id=2]
+[ext_resource path="res://Player/Images/player_sprite_v2.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Inventory.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -27,10 +27,50 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 0 ]
 }
 
+[sub_resource type="Animation" id=5]
+
+resource/name = "run_armed"
+length = 1.2
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.3, 0.6, 0.9, 1.2 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 4 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "runv2"
+length = 1.2
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.3, 0.6, 0.9, 1.2 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
 [sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 8.32988
+radius = 8.61452
+
+[sub_resource type="CapsuleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 12.9408
+height = 1.08807
 
 [node name="Player" type="RigidBody2D"]
 
@@ -61,7 +101,9 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( -0.0114975, -0.123905 )
 texture = ExtResource( 2 )
-hframes = 4
+hframes = 9
+frame = 1
+region_rect = Rect2( 0, 0, 50, 59 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -69,6 +111,8 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/run = SubResource( 2 )
+anims/run_armed = SubResource( 5 )
+anims/runv2 = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -109,7 +153,7 @@ visibility/visible = false
 transform/pos = Vector2( 0.933617, -3.44068 )
 input/pickable = true
 shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.47932, 20.5698 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.47932, 17.9346 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -118,8 +162,26 @@ angular_damp = 1.0
 
 [node name="ground_collision" type="CollisionShape2D" parent="ground_check"]
 
-transform/pos = Vector2( -1.47932, 20.5698 )
+transform/pos = Vector2( -1.47932, 17.9346 )
 shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="item_check" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -2.10815, -17.1288 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="item_collision" type="CollisionShape2D" parent="item_check"]
+
+transform/pos = Vector2( -2.10815, -17.1288 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
 
@@ -128,5 +190,7 @@ _update_shape_index = 0
 [connection signal="body_enter" from="ground_check" to="." method="_on_ground_check_body_enter"]
 
 [connection signal="body_exit" from="ground_check" to="." method="_on_ground_check_body_exit"]
+
+[connection signal="area_enter" from="item_check" to="." method="_on_item_check_area_enter"]
 
 

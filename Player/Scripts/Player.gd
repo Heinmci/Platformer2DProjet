@@ -13,6 +13,7 @@ var siding_left = false
 
 var popup_shown = false
 
+var armed = false
  
 # Start
 func _ready():
@@ -31,13 +32,19 @@ func apply_force(state):
     # Move Left
     if(Input.is_action_pressed("ui_left")):
         directional_force += DIRECTION.LEFT
-        new_anim = "run"
+        if (!armed):
+            new_anim = "runv2"
+        else:
+            new_anim = "run_armed"
         new_siding_left = true
      
     # Move Right
     if(Input.is_action_pressed("ui_right")):
         directional_force += DIRECTION.RIGHT
-        new_anim = "run"
+        if (!armed):
+            new_anim = "runv2"
+        else:
+            new_anim = "run_armed"
         new_siding_left = false
      
     # Jump
@@ -74,13 +81,17 @@ func apply_force(state):
 
 func _on_ground_check_body_enter( body ):
     grounded = true
-    print("on ground")
     #When player is grounded the friction has to be set to 1
     set_friction(1)
 
 
 func _on_ground_check_body_exit( body ):
     grounded = false
-    print("on air")
     #When player is on air the friction has to be set to 0
     set_friction(0)
+
+
+func _on_item_check_area_enter( area ):
+    if (area.get_name() == "sword_check"):
+        area.get_parent().queue_free()
+        armed = true

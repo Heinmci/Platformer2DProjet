@@ -37,15 +37,14 @@ radius = 10.0
 
 [node name="Jeton1" type="Node2D"]
 
-editor/display_folded = true
 transform/pos = Vector2( 1.29324, 2.15542 )
 script/script = ExtResource( 1 )
 value = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, -0.384059 )
-transform/rot = 63.8264
+transform/pos = Vector2( 0, -1.29739 )
+transform/rot = 29.251
 transform/scale = Vector2( 1.49222, 1.37408 )
 texture = ExtResource( 2 )
 region = true
@@ -64,7 +63,6 @@ autoplay = "AnimJeton"
 
 [node name="Area2D" type="Area2D" parent="."]
 
-editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1.21035, 0, 0, 1.22693, 0.301655, -0.856113 )

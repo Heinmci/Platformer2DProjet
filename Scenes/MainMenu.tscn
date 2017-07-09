@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://Images/Background.png" type="Texture" id=1]
 [ext_resource path="res://Script/Gameplay.gd" type="Script" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Images/QuitHover.PNG" type="Texture" id=13]
 [ext_resource path="res://Script/Quit.gd" type="Script" id=14]
 [ext_resource path="res://Images/GamePlay.PNG" type="Texture" id=15]
-[ext_resource path="res://Sounds/sound_menu.ogg" type="AudioStream" id=16]
 
 [node name="Background" type="TextureFrame"]
 
@@ -123,17 +122,6 @@ shortcut = null
 textures/normal = ExtResource( 15 )
 params/resize_mode = 0
 params/stretch_mode = 0
-
-[node name="Music" type="StreamPlayer" parent="."]
-
-stream/stream = ExtResource( 16 )
-stream/play = false
-stream/loop = true
-stream/volume_db = 0.0
-stream/autoplay = true
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
 
 [connection signal="pressed" from="Play" to="Play" method="_on_Play_pressed"]
 
