@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Scenes/Stage1.gd" type="Script" id=1]
 [ext_resource path="res://Objets/tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://Images/backgroundLevel1.png" type="Texture" id=3]
-[ext_resource path="res://Script/Time.gd" type="Script" id=4]
+[ext_resource path="res://Script/time.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=6]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Sounds/sound_level1.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Objets/tileset4.xml" type="TileSet" id=11]
 [ext_resource path="res://Images/castledoors.png" type="Texture" id=12]
+[ext_resource path="res://Objets/Apple.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objets/LifeInfo.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -78,7 +81,6 @@ stretch_mode = 2
 
 [node name="CoinsView" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -190,6 +192,7 @@ tile_data = IntArray( 851968, 536870912, 917504, 536870912, 983040, 536870912, 1
 [node name="Player" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 100, 567.775 )
+z/z = 100
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -410,6 +413,16 @@ text = "Congratulations ! You WIN..."
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Apple" parent="." instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 582.381, 349.873 )
+
+[node name="LevelCentrale" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 3277.27, 803.553 )
+
+[node name="LifeInfo" parent="." instance=ExtResource( 15 )]
 
 [connection signal="timeout" from="CoinsView/Time/Timer" to="CoinsView/Time" method="_on_Timer_timeout"]
 

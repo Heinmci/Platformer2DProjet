@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/sound_choose_level.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Objets/Apple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objets/LifeInfo.tscn" type="PackedScene" id=6]
 
 [node name="MainLevel" type="Node2D"]
 
@@ -83,5 +84,7 @@ stream/buffering_ms = 500
 [node name="Apple" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1024.26, 534.378 )
+
+[node name="LifeInfo" parent="." instance=ExtResource( 6 )]
 
 
