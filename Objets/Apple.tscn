@@ -10,12 +10,15 @@ radius = 16.9348
 
 [node name="Apple" type="Node2D"]
 
+editor/display_folded = true
+
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -1.94819, -1.16227 )
 transform/scale = Vector2( 0.9936, 1 )
 input/pickable = true
@@ -34,5 +37,23 @@ transform/pos = Vector2( 1.5497, 1.16227 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="TakeApple" type="Label" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = -30.0
+margin/right = 170.0
+margin/bottom = -16.0
+text = "Press \"E\" to take the apple"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="body_enter" from="Area2D" to="Area2D" method="_on_Area2D_body_enter"]
 
 

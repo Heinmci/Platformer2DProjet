@@ -17,3 +17,8 @@ func _input(event):
 		print(scene_path)
 		print(get_pos())
 		get_tree().change_scene(scene_path)
+
+
+func _on_Area2D_body_enter( body ):
+	if (body.get_name() == "Player"):
+		get_parent().get_node("Enter").show()

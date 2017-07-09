@@ -81,6 +81,7 @@ stretch_mode = 2
 
 [node name="CoinsView" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -287,6 +288,44 @@ transform/pos = Vector2( 1120, 640 )
 
 transform/pos = Vector2( 1150, 640 )
 
+[node name="Jeton23" parent="Coins" instance=ExtResource( 8 )]
+
+[node name="Jeton24" parent="Coins" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2100, 680 )
+
+[node name="Jeton25" parent="Coins" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2370, 680 )
+
+[node name="Jeton26" parent="Coins" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2625, 680 )
+
+[node name="Jeton27" parent="Coins" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2100, 550 )
+
+[node name="Jeton28" parent="Coins" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2360, 550 )
+
+[node name="Jeton29" parent="Coins" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2620, 550 )
+
+[node name="Jeton30" parent="Coins" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2100, 430 )
+
+[node name="Jeton31" parent="Coins" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2360, 430 )
+
+[node name="Jeton32" parent="Coins" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2620, 430 )
+
 [node name="Platforms" type="Node2D" parent="."]
 
 editor/display_folded = true
@@ -345,6 +384,14 @@ transform/pos = Vector2( 2350, 160 )
 
 transform/pos = Vector2( 1400, 40 )
 
+[node name="moving_platform 14" parent="Platforms" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2470, 220 )
+
+[node name="moving_platform 15" parent="Platforms" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2600, 290 )
+
 [node name="Music" type="StreamPlayer" parent="."]
 
 stream/stream = ExtResource( 10 )
@@ -376,6 +423,7 @@ tile_data = IntArray( 524319, 0, 524323, 0, 524327, 0, 655391, 0, 655395, 0, 655
 
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 3400, 805 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )

@@ -20,3 +20,7 @@ func _input(event):
 		get_parent().get_parent().get_node("LifeInfo/Label").set_text(str("Number of lives : ",lives + 1))
 		
 		
+
+func _on_Area2D_body_enter( body ):
+	if (body.get_name() == "Player"):
+		get_parent().get_node("TakeApple").show()
