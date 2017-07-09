@@ -8,6 +8,7 @@ var can_jump = false
 var jump_time = 0
 const TOP_JUMP_TIME = 0.1 # in seconds
 
+var number_of_lifes = 1
 var anim = ""
 var siding_left = false
 
@@ -22,6 +23,8 @@ func _ready():
 	acceleration = 1000
 	top_move_speed = 150
 	top_jump_speed = 400
+	if (Globals.has("number_of_lifes")):
+		number_of_lifes = Globals.get("number_of_lifes")
  
 # Apply force
 func apply_force(state):

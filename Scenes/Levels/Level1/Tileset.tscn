@@ -49,6 +49,7 @@ extents = Vector2( 28, 25 )
 
 [node name="Wall" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 445.604, 324.762 )
 texture = ExtResource( 1 )
 region = true
@@ -56,6 +57,7 @@ region_rect = Rect2( 0, 0, 50, 50 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
 
+editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -0.663422 )
@@ -76,6 +78,7 @@ _update_shape_index = 0
 
 [node name="Floor" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 251.753, 75.526 )
 texture = ExtResource( 1 )
 region = true
@@ -159,6 +162,7 @@ trigger = false
 
 [node name="Sprite 3" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 165.808, 342.166 )
 texture = ExtResource( 1 )
 region = true
@@ -185,6 +189,7 @@ _update_shape_index = 0
 
 [node name="StaticPlatform" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 822.17, 74.1808 )
 texture = ExtResource( 2 )
 
@@ -209,7 +214,6 @@ _update_shape_index = 0
 
 [node name="MovingPlatform" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 708.258, 281.262 )
 texture = ExtResource( 3 )
 
