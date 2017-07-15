@@ -16,7 +16,6 @@ texture = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( -0.62674, 11.4165 )
 transform/scale = Vector2( 2.76808, 2.15933 )
 input/pickable = true
