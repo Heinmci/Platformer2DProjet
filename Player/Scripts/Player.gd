@@ -24,6 +24,7 @@ func _ready():
 	acceleration = 1000
 	top_move_speed = 150
 	top_jump_speed = 400
+	get_node("attack_ennemy_check").hide()
 	if (Globals.has("number_of_lifes")):
 		number_of_lifes = Globals.get("number_of_lifes")
  
@@ -94,6 +95,9 @@ func apply_force(state):
         get_node("AnimationPlayer").stop()
         if (armed):
             get_node("AnimationPlayer").play("attack")
+            get_node("attack_ennemy_check").show()
+    else:
+        get_node("attack_ennemy_check").hide()
 
 func _on_ground_check_body_enter( body ):
     grounded = true
@@ -115,4 +119,10 @@ func _on_item_check_area_enter( area ):
         number_of_lifes -= 1
         Globals.set("number_of_lifes", number_of_lifes)
         get_parent().get_node("LifeInfo/Label").set_text(str("Number of lives : ", number_of_lifes))
+
+
+
+func _on_attack_ennemy_check_area_enter( area ):
+    if get_node("attack_ennemy_check").is_visible():
+        print(area.get_name())
 
