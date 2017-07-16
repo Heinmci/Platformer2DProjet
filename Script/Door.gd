@@ -10,6 +10,7 @@ func _ready():
 	# Initialization here
 	set_process_input(true)
 	scene_path = "res://Scenes/Levels/" + get_parent().get_name() + "/Stage.tscn"
+	connect("body_exit",self,"_on_Area2D_body_exit")
 	pass
 	
 func _input(event):
@@ -22,3 +23,7 @@ func _input(event):
 func _on_Area2D_body_enter( body ):
 	if (body.get_name() == "Player"):
 		get_parent().get_node("Enter").show()
+		
+func _on_Area2D_body_exit( body ):
+	if (body.get_name() == "Player"):
+		get_parent().get_node("Enter").hide()

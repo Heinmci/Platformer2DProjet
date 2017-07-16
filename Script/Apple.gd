@@ -8,6 +8,7 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	set_process_input(true)
+	connect("body_exit",self,"_on_Area2D_body_exit")
 	pass
 
 func _input(event):
@@ -24,3 +25,7 @@ func _input(event):
 func _on_Area2D_body_enter( body ):
 	if (body.get_name() == "Player"):
 		get_parent().get_node("TakeApple").show()
+		
+func _on_Area2D_body_exit( body ):
+	if (body.get_name() == "Player"):
+		get_parent().get_node("TakeApple").hide()

@@ -90,6 +90,25 @@ transform/pos = Vector2( 1024.26, 534.378 )
 
 [node name="SavePanel" parent="." instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 936.655, 524.44 )
+transform/pos = Vector2( 923.387, 523.113 )
+
+[node name="Merchant" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 778.618, 503.098 )
+
+[node name="MerchantLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 749.0
+margin/top = 444.0
+margin/right = 811.0
+margin/bottom = 458.0
+text = "Marchand"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
