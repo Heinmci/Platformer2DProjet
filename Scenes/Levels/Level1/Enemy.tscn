@@ -75,7 +75,7 @@ tracks/3/keys = {
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 28.0497, 2.98001 )
+extents = Vector2( 27.6691, 6.81045 )
 
 [node name="ennemy" type="RigidBody2D"]
 
@@ -106,7 +106,9 @@ script/script = ExtResource( 1 )
 
 transform/scale = Vector2( 1.10647, 0.94896 )
 texture = ExtResource( 2 )
+flip_h = true
 hframes = 8
+frame = 6
 region_rect = Rect2( 0, 20, 60, 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -150,7 +152,7 @@ autoplay = ""
 
 input/pickable = true
 shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.874123, 10.1399 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.386421, 5.26313 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -159,9 +161,11 @@ angular_damp = 1.0
 
 [node name="obstacle_collision" type="CollisionShape2D" parent="obstacle_check"]
 
-transform/pos = Vector2( 0.874123, 10.1399 )
+transform/pos = Vector2( 0.386421, 5.26313 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
+
+[connection signal="area_enter" from="obstacle_check" to="." method="_on_obstacle_check_area_enter"]
 
 
