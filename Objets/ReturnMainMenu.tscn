@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Images/signpost.png" type="Texture" id=1]
+[ext_resource path="res://Script/ReturnGameMenu.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="ReturnMainMenu" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 4.24399, 15.9747 )
+transform/scale = Vector2( 2.99368, 1.7607 )
+texture = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -35.0
+margin/top = -1.0
+margin/right = 43.0
+margin/bottom = 13.0
+text = "Game Menu"
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 6.37885, 0, 0, 4.90503, 5.14212, 17.9232 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+transform/pos = Vector2( 5.14212, 17.9232 )
+transform/scale = Vector2( 6.37885, 4.90503 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Enter" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -85.0
+margin/top = -29.0
+margin/right = 155.0
+margin/bottom = -15.0
+text = "Press \"E\" to return to the game menu"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="body_enter" from="Area2D" to="Area2D" method="_on_Area2D_body_enter"]
+
+[connection signal="body_exit" from="Area2D" to="Area2D" method="_on_Area2D_body_exit"]
+
+

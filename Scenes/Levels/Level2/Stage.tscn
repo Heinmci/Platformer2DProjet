@@ -141,6 +141,7 @@ max_lines_visible = -1
 
 [node name="Time" type="RichTextLabel" parent="CoinsView"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -183,6 +184,8 @@ transform/pos = Vector2( 269, 332 )
 transform/pos = Vector2( 769, 304 )
 
 [node name="Ennemies" type="Node" parent="."]
+
+editor/display_folded = true
 
 [node name="ennemy" parent="Ennemies" instance=ExtResource( 9 )]
 
