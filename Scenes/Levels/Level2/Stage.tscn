@@ -184,8 +184,6 @@ transform/pos = Vector2( 769, 304 )
 
 [node name="Ennemies" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="ennemy" parent="Ennemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 665, 330 )
