@@ -70,6 +70,7 @@ func _integrate_forces(s):
 			get_node("sprite").set_scale(Vector2(-direction, 1))
 		
 		lv.x = direction*WALK_SPEED
+	    
 	
 	if(anim != new_anim):
 		anim = new_anim
@@ -77,7 +78,7 @@ func _integrate_forces(s):
 	
 	s.set_linear_velocity(lv)
 
-
 func _ready():
 	rc_left = get_node("raycast_left")
 	rc_right = get_node("raycast_right")
+	get_node("AnimationPlayer").play("animEnnemy")
