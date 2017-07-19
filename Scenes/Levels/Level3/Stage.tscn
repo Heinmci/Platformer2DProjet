@@ -47,7 +47,6 @@ transform/pos = Vector2( 100, 400 )
 [node name="LevelCentrale" parent="." instance=ExtResource( 5 )]
 transform/pos = Vector2( 8410, 460 )
 [node name="CoinsView" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

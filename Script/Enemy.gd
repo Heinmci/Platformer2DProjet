@@ -82,7 +82,6 @@ func _ready():
 	rc_right = get_node("raycast_right")
 	get_node("AnimationPlayer").play("animEnnemy")
 
-
 func _on_obstacle_check_area_enter( area ):
     if area.get_name() == "attack_ennemy_check" && area.is_visible():
         queue_free()
