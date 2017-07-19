@@ -121,6 +121,8 @@ autostart = true
 
 [node name="Ennemies" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="ennemy" parent="Ennemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 390, 490 )

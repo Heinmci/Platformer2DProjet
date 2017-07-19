@@ -146,7 +146,6 @@ _update_shape_index = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-editor/display_folded = true
 anchor_mode = 1
 rotating = true
 current = true

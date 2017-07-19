@@ -13,6 +13,8 @@ func _ready():
 func _collect_coin( body ):
 	if get_owner() != null:
 		get_owner().coins_collected += value
+		print(get_owner().coins_collected)
+		Globals.set("coins_collected",get_owner().coins_collected)
 		get_owner().get_node("CoinsView/CoinsCollected").set_text(str("Coins : ",get_owner().coins_collected))	
 	
 	queue_free()

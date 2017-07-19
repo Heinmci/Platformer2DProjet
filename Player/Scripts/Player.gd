@@ -117,6 +117,7 @@ func _on_item_check_area_enter( area ):
 		area.get_parent().queue_free()
 		armed = true
 		Globals.set("has_sword",true)
+		deal_with_inventory()
 	if (area.get_name() == "obstacle_check"):
 		number_of_lifes -= 1
 		Globals.set("number_of_lifes", number_of_lifes)
@@ -127,4 +128,14 @@ func _on_item_check_area_enter( area ):
 func _on_attack_ennemy_check_area_enter( area ):
     if get_node("attack_ennemy_check").is_visible():
         print(area.get_name())
+
+func deal_with_inventory():
+	var itemlist = get_node("Camera2D/Inventory/Items")
+	var sword_in_inventory = false
+	for i in range(itemlist.get_item_count()):
+		if (itemlist.get_item_text(i) == "Sword"):
+			sword_in_inventory = true
+	if (!sword_in_inventory):
+		var sword_image = preload("res://Images/sword.png")
+		itemlist.add_item("Sword",sword_image,true)
 

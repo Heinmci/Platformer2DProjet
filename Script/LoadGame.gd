@@ -24,6 +24,7 @@ func init_globals():
 	Globals.set("Level1_apple",false)
 	Globals.set("level2_apple",false)
 	Globals.set("LevelCentrale_apple",false)
+	Globals.set("coins_collected",0)
 	
 func load_game():
 	var savegame = File.new()
@@ -39,4 +40,5 @@ func load_game():
 		Globals.set("Level1_apple",currentline["Level1_apple"])
 		Globals.set("Level2_apple",currentline["Level2_apple"])
 		Globals.set("LevelCentrale_apple",currentline["LevelCentrale_apple"])
+		Globals.set("coins_collected",currentline["coins_collected"])
 	savegame.close()

@@ -33,6 +33,7 @@ func save():
 		LevelCentrale_apple=Globals.get("LevelCentrale_apple"),
 		Level1_apple=Globals.get("Level1_apple"),
 		Level2_apple=Globals.get("Level2_apple"),
+		coins_collected=Globals.get("coins_collected")
 	}
 	return savedict
 

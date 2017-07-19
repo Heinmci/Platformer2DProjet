@@ -8,4 +8,5 @@ func pressed():
 	Globals.set("Level1_apple",false)
 	Globals.set("level2_apple",false)
 	Globals.set("LevelCentrale_apple",false)
+	Globals.set("coins_collected",0)
 
