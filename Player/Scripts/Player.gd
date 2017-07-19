@@ -27,12 +27,13 @@ func _ready():
 	get_node("attack_ennemy_check").hide()
 	if (Globals.has("number_of_lifes")):
 		number_of_lifes = Globals.get("number_of_lifes")
+	armed = Globals.get("has_sword")
  
 func _fixed_process(delta):
     if (number_of_lifes == 0):
         number_of_lifes = 1
         Globals.set("number_of_lifes", number_of_lifes)
-        get_tree().change_scene("res://Scenes/MainMenu.tscn")
+        get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 # Apply force
 func apply_force(state):
@@ -112,13 +113,14 @@ func _on_ground_check_body_exit( body ):
 
 
 func _on_item_check_area_enter( area ):
-    if (area.get_name() == "sword_check"):
-        area.get_parent().queue_free()
-        armed = true
-    if (area.get_name() == "obstacle_check"):
-        number_of_lifes -= 1
-        Globals.set("number_of_lifes", number_of_lifes)
-        get_parent().get_node("LifeInfo/Label").set_text(str("Number of lives : ", number_of_lifes))
+	if (area.get_name() == "sword_check"):
+		area.get_parent().queue_free()
+		armed = true
+		Globals.set("has_sword",true)
+	if (area.get_name() == "obstacle_check"):
+		number_of_lifes -= 1
+		Globals.set("number_of_lifes", number_of_lifes)
+		get_parent().get_node("LifeInfo/Label").set_text(str("Number of lives : ", number_of_lifes))
 
 
 

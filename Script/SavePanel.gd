@@ -26,10 +26,15 @@ func save_game():
     savegame.close()
 
 func save():
-    var savedict = {
-       number_of_lifes=Globals.get("number_of_lifes")
-    }
-    return savedict
+	var savedict = {
+		number_of_lifes=Globals.get("number_of_lifes"),
+		has_sword=Globals.get("has_sword"),
+		current_level=Globals.get("current_level"),
+		LevelCentrale_apple=Globals.get("LevelCentrale_apple"),
+		Level1_apple=Globals.get("Level1_apple"),
+		Level2_apple=Globals.get("Level2_apple"),
+	}
+	return savedict
 
 func _on_Area2D_body_exit( body ):
 	if (body.get_name() == "Player"):
