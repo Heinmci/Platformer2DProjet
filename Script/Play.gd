@@ -11,4 +11,5 @@ func pressed():
 	Globals.set("LevelCentrale_apple",false)
 	Globals.set("coins_collected",0)
 	Globals.set("equipped_weapon","none")
+	Globals.set("central_recall_potion",0)
 

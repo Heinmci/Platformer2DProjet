@@ -35,7 +35,8 @@ func save():
 		Level1_apple=Globals.get("Level1_apple"),
 		Level2_apple=Globals.get("Level2_apple"),
 		coins_collected=Globals.get("coins_collected"),
-		equipped_weapon=Globals.get("equipped_weapon")
+		equipped_weapon=Globals.get("equipped_weapon"),
+		central_recall_potion=Globals.get("central_recall_potion")
 	}
 	return savedict
 

@@ -24,6 +24,9 @@ func _ready():
 	if (Globals.get("has_spear")):
 		var sword_image = preload("res://Images/small_spear.png")
 		itemlist.add_item("Spear",sword_image,true)
+	if (Globals.get("central_recall_potion") > 0):
+		var potion = preload("res://Images/potion.png")
+		itemlist.add_item("Central Recall potion (" + str(Globals.get("central_recall_potion")) + ")",potion,true)
 	set_hidden(true)
 	pass
 
@@ -62,9 +65,16 @@ func update_inventory_info():
 			itemlist.set_item_text(1,"Coins (" + str(Globals.get("coins_collected")) + ")")
 
 func selected_something():
-	print(itemlist.get_item_text(selected_item))
 	if (itemlist.get_item_text(selected_item) == "Sword"):
 		Globals.set("equipped_weapon","sword")
 		print(Globals.get("equipped_weapon"))
-	if (itemlist.get_item_text(selected_item) == "Spear"):
+	elif (itemlist.get_item_text(selected_item) == "Spear"):
 		Globals.set("equipped_weapon","spear")
+	if (itemlist.get_item_text(selected_item).findn("Central Recall potion") != -1):
+		var potion_count = Globals.get("central_recall_potion")
+		if (potion_count > 0):
+			Globals.set("central_recall_potion",potion_count-1)
+			set_hidden(true)
+			currently_hidden = true
+			get_tree().set_pause(false)
+			get_tree().change_scene("res://Scenes/Levels/LevelCentrale/Stage.tscn")

@@ -27,6 +27,7 @@ func init_globals():
 	Globals.set("LevelCentrale_apple",false)
 	Globals.set("coins_collected",0)
 	Globals.set("equipped_weapon","none")
+	Globals.set("central_recall_potion",0)
 	
 func load_game():
 	var savegame = File.new()
@@ -45,4 +46,5 @@ func load_game():
 		Globals.set("LevelCentrale_apple",currentline["LevelCentrale_apple"])
 		Globals.set("coins_collected",currentline["coins_collected"])
 		Globals.set("equipped_weapon",currentline["equipped_weapon"])
+		Globals.set("central_recall_potion",currentline["central_recall_potion"])
 	savegame.close()

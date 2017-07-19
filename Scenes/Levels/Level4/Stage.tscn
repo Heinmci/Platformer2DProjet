@@ -73,7 +73,7 @@ tile_data = IntArray(  )
 
 transform/pos = Vector2( 30, 90 )
 
-[node name="Door" parent="." instance=ExtResource( 6 )]
+[node name="LevelCentrale" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 4250, 190 )
 
