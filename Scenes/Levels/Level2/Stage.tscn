@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Tileset/mytiles.res" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Sword.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Spear.tscn" type="PackedScene" id=11]
 
 [sub_resource type="GDScript" id=1]
 
@@ -141,6 +142,7 @@ max_lines_visible = -1
 
 [node name="Time" type="RichTextLabel" parent="CoinsView"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -194,6 +196,10 @@ transform/pos = Vector2( 1454.24, 314.005 )
 
 transform/pos = Vector2( 500.103, 99.9305 )
 transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="Spear" parent="." instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 313.118, 116.194 )
 
 [connection signal="timeout" from="CoinsView/Time/Timer" to="CoinsView/Time" method="_on_Timer_timeout"]
 

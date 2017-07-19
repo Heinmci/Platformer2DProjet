@@ -27,7 +27,10 @@ func _ready():
 	get_node("attack_ennemy_check").hide()
 	if (Globals.has("number_of_lifes")):
 		number_of_lifes = Globals.get("number_of_lifes")
-	armed = Globals.get("has_sword")
+	if Globals.get("has_sword"):
+		armed = Globals.get("has_sword")
+	if Globals.get("has_spear"):
+		armed = Globals.get("has_spear")
  
 func _fixed_process(delta):
     if (number_of_lifes == 0):
@@ -47,7 +50,10 @@ func apply_force(state):
         if (!armed):
             new_anim = "runv2"
         else:
-            new_anim = "run_armed"
+            if Globals.get("has_sword"):
+                new_anim = "run_armed"
+            if Globals.get("has_spear"):
+               new_anim = "run_with_spear"
         new_siding_left = true
      
     # Move Right
@@ -56,7 +62,10 @@ func apply_force(state):
         if (!armed):
             new_anim = "runv2"
         else:
-            new_anim = "run_armed"
+            if Globals.get("has_sword"):
+               new_anim = "run_armed"
+            if Globals.get("has_spear"):
+               new_anim = "run_with_spear"
         new_siding_left = false
      
     # Jump
@@ -94,8 +103,11 @@ func apply_force(state):
     # Attack
     if Input.is_action_pressed("attack"):
         get_node("AnimationPlayer").stop()
-        if (armed):
-            get_node("AnimationPlayer").play("attack")
+        if (armed): 
+            if Globals.get("has_sword") == true:
+                get_node("AnimationPlayer").play("attack")
+            if Globals.get("has_spear") == true:
+                get_node("AnimationPlayer").play("attack_with_spear")
             get_node("attack_ennemy_check").show()
     else:
         get_node("attack_ennemy_check").hide()
@@ -114,10 +126,31 @@ func _on_ground_check_body_exit( body ):
 
 func _on_item_check_area_enter( area ):
 	if (area.get_name() == "sword_check"):
-		area.get_parent().queue_free()
-		armed = true
 		Globals.set("has_sword",true)
 		deal_with_inventory()
+		if !Globals.get("has_spear"):
+			area.get_parent().queue_free()
+			armed = true
+			Globals.set("has_sword",true)
+			Globals.set("has_spear",false)
+		else:
+			if Input.is_action_pressed("e_key"):
+				area.get_parent().queue_free()
+				armed = true
+				Globals.set("has_sword",true)
+				Globals.set("has_spear",false)
+	if (area.get_name() == "spear_check"):
+		if !Globals.get("has_sword"):
+			area.get_parent().queue_free()
+			armed = true
+			Globals.set("has_spear",true)
+			Globals.set("has_sword",false)
+		else:
+			if Input.is_action_pressed("e_key"):
+				area.get_parent().queue_free()
+				armed = true
+				Globals.set("has_spear",true)
+				Globals.set("has_sword",false)
 	if (area.get_name() == "obstacle_check"):
 		number_of_lifes -= 1
 		Globals.set("number_of_lifes", number_of_lifes)
