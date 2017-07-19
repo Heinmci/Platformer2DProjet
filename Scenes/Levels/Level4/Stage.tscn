@@ -73,6 +73,7 @@ tile_data = IntArray(  )
 [node name="Player" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 30, 90 )
+z/z = 100
 
 [node name="LevelCentrale" parent="." instance=ExtResource( 6 )]
 
