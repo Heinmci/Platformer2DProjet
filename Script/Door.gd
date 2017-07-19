@@ -19,7 +19,7 @@ func _ready():
 func _input(event):
 	if (event.is_action_pressed("e_key") && overlaps_body(get_parent().get_parent().get_node("Player"))):
 		if (get_parent().get_parent().get_name() == "Level4"):
-			get_tree().change_scene("res://Scenes/MainMenu.tscn")
+			get_tree().change_scene("res://Scenes/Victory.tscn")
 		if (get_parent().get_parent().get_name() != "LevelCentrale" && get_parent().get_parent().get_name() != "Merchant"):
 			update_current_level()
 		get_tree().change_scene(scene_path)

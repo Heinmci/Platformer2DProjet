@@ -5,12 +5,12 @@
 [ext_resource path="res://Objets/tileset4.xml" type="TileSet" id=3]
 [ext_resource path="res://Objets/tilesetMario2.xml" type="TileSet" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objets/LifeInfo.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Levels/Level1/Jeton2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Levels/Level4/Time.gd" type="Script" id=10]
-[ext_resource path="res://Sounds/sound_level4.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objets/LifeInfo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Levels/Level1/Jeton2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/Level4/Time.gd" type="Script" id=9]
+[ext_resource path="res://Sounds/sound_level4.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=11]
 
 [node name="Level4" type="Node2D"]
 
@@ -75,101 +75,97 @@ tile_data = IntArray(  )
 transform/pos = Vector2( 30, 90 )
 z/z = 100
 
-[node name="LevelCentrale" parent="." instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 4250, 190 )
-
 [node name="Ennemies" type="Node" parent="."]
 
 editor/display_folded = true
 
-[node name="ennemy" parent="Ennemies" instance=ExtResource( 7 )]
+[node name="ennemy" parent="Ennemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 800, 220 )
 
-[node name="ennemy 2" parent="Ennemies" instance=ExtResource( 7 )]
+[node name="ennemy 2" parent="Ennemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 2800, 150 )
 
-[node name="ennemy 3" parent="Ennemies" instance=ExtResource( 7 )]
+[node name="ennemy 3" parent="Ennemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 2800, 220 )
 
-[node name="ennemy 4" parent="Ennemies" instance=ExtResource( 7 )]
+[node name="ennemy 4" parent="Ennemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 3750, 150 )
 
-[node name="ennemy 5" parent="Ennemies" instance=ExtResource( 7 )]
+[node name="ennemy 5" parent="Ennemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 4150, 220 )
 
-[node name="LifeInfo" parent="." instance=ExtResource( 8 )]
+[node name="LifeInfo" parent="." instance=ExtResource( 7 )]
 
 [node name="Coins" type="Node" parent="."]
 
 editor/display_folded = true
 
-[node name="Jeton1" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 285, 170 )
 
-[node name="Jeton1 2" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 2" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 650, 170 )
 
-[node name="Jeton1 3" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 3" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 700, 170 )
 
-[node name="Jeton1 4" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 4" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1480, 110 )
 
-[node name="Jeton1 5" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 5" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1990, 160 )
 
-[node name="Jeton1 6" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 6" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2140, 160 )
 
-[node name="Jeton1 7" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 7" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2400, 100 )
 
-[node name="Jeton1 8" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 8" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2450, 100 )
 
-[node name="Jeton1 9" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 9" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2500, 100 )
 
-[node name="Jeton1 10" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 10" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 2550, 100 )
 
-[node name="Jeton1 11" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 11" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3440, 210 )
 
-[node name="Jeton1 12" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 12" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3470, 210 )
 
-[node name="Jeton1 13" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 13" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3910, 140 )
 
-[node name="Jeton1 14" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 14" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3940, 140 )
 
-[node name="Jeton1 15" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 15" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3980, 140 )
 
-[node name="Jeton1 16" parent="Coins" instance=ExtResource( 9 )]
+[node name="Jeton1 16" parent="Coins" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 4020, 140 )
 
@@ -224,7 +220,7 @@ margin/bottom = 70.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-script/script = ExtResource( 10 )
+script/script = ExtResource( 9 )
 
 [node name="Timer" type="Timer" parent="CoinsView/Time"]
 
@@ -235,7 +231,7 @@ autostart = true
 
 [node name="Music" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 11 )
+stream/stream = ExtResource( 10 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -243,6 +239,10 @@ stream/autoplay = true
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
+
+[node name="Victory" parent="." instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 4244.02, 192.411 )
 
 [connection signal="timeout" from="CoinsView/Time/Timer" to="CoinsView/Time" method="_on_Timer_timeout"]
 
