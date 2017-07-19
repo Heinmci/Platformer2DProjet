@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/apu.png" type="Texture" id=3]
-[ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Script/merchant.gd" type="Script" id=4]
+[ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Shop.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [node name="Merchant" type="Node2D"]
 
@@ -36,7 +43,29 @@ transform/pos = Vector2( 466.615, 515.398 )
 transform/scale = Vector2( 0.256497, 0.168847 )
 texture = ExtResource( 3 )
 
-[node name="LevelCentrale" parent="." instance=ExtResource( 4 )]
+[node name="Area2D" type="Area2D" parent="MerchantSprite"]
+
+transform/pos = Vector2( 3.8504, -2.89721 )
+transform/scale = Vector2( 3.00047, 7.08527 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 3.03537, 0, 0, 3.12714, 0.234475, 0.420386 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MerchantSprite/Area2D"]
+
+transform/pos = Vector2( 0.234475, 0.420386 )
+transform/scale = Vector2( 3.03537, 3.12714 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="LevelCentrale" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 910.986, 501.152 )
 
@@ -51,6 +80,42 @@ margin/top = 441.0
 margin/right = 947.0
 margin/bottom = 455.0
 text = "Lvl Central"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Shop" parent="." instance=ExtResource( 6 )]
+
+margin/left = 405.0
+margin/top = 395.0
+margin/right = 542.0
+margin/bottom = 461.0
+
+[node name="InteractionInfo" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 408.0
+margin/top = 462.0
+margin/right = 530.0
+margin/bottom = 476.0
+text = "Press E to open shop"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="BuyResult" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 408.0
+margin/top = 374.0
+margin/right = 538.0
+margin/bottom = 388.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

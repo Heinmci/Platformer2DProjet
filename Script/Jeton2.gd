@@ -11,10 +11,11 @@ func _ready():
 	
 	
 func _collect_coin( body ):
+	if (body.get_name() == "Player"):
+		var player_coins = Globals.get("coins_collected")
+		Globals.set("coins_collected",player_coins+1)
 	if get_owner() != null:
 		get_owner().coins_collected += value
-		print(get_owner().coins_collected)
-		Globals.set("coins_collected",get_owner().coins_collected)
 		get_owner().get_node("CoinsView/CoinsCollected").set_text(str("Coins : ",get_owner().coins_collected))	
 	
 	queue_free()
