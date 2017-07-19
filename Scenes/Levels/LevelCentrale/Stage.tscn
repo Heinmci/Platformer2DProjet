@@ -74,4 +74,8 @@ transform/pos = Vector2( 1123.48, 1051.02 )
 
 transform/pos = Vector2( 530.322, 502.061 )
 
+[node name="Level4" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 625.89, 501.568 )
+
 
