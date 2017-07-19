@@ -74,7 +74,6 @@ stretch_mode = 2
 
 [node name="CoinsView" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -133,6 +132,8 @@ one_shot = false
 autostart = true
 
 [node name="Ennemis" type="Node" parent="."]
+
+editor/display_folded = true
 
 [node name="Ennemi1" parent="Ennemis" instance=ExtResource( 5 )]
 

@@ -14,4 +14,5 @@ func _collect_coin( body ):
 	if get_owner() != null:
 		get_owner().coins_collected += value
 		get_owner().get_node("CoinsView/CoinsCollected").set_text(str("Coins : ",get_owner().coins_collected))	
+	
 	queue_free()

@@ -146,6 +146,7 @@ _update_shape_index = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+editor/display_folded = true
 anchor_mode = 1
 rotating = true
 current = true
@@ -169,6 +170,7 @@ visibility/visible = false
 
 [node name="ground_check" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 0.933617, -3.44068 )
 input/pickable = true
 shapes/0/shape = SubResource( 6 )
@@ -188,6 +190,7 @@ _update_shape_index = 0
 
 [node name="item_check" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 7 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 2.89875, -4.47985 )
@@ -206,6 +209,7 @@ _update_shape_index = 0
 
 [node name="attack_ennemy_check" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -0.263519, 0 )
 input/pickable = true
 shapes/0/shape = SubResource( 8 )

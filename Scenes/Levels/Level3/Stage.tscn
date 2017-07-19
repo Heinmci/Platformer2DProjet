@@ -1,15 +1,23 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=10 format=1]
 
-[ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=1]
-[ext_resource path="res://Objets/tileset2.xml" type="TileSet" id=2]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Levels/Level3/Stage.gd" type="Script" id=1]
+[ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=2]
+[ext_resource path="res://Objets/tileset2.xml" type="TileSet" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Levels/Level3/Time.gd" type="Script" id=6]
+[ext_resource path="res://Objets/LifeInfo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Levels/Level1/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/Level1/Jeton2.tscn" type="PackedScene" id=9]
 
 [node name="Level3" type="Node2D"]
+
+script/script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell/size = Vector2( 50, 50 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -27,7 +35,7 @@ tile_data = IntArray(  )
 [node name="TileMap 2" type="TileMap" parent="."]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell/size = Vector2( 55, 50 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -40,10 +48,167 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 8, 1, 8, 2, 8, 3, 8, 4, 8, 5, 8, 6, 8, 7, 8, 8, 8, 9, 8, 10, 8, 11, 8, 12, 8, 13, 8, 14, 8, 15, 8, 16, 8, 17, 8, 18, 8, 19, 8, 20, 8, 21, 8, 22, 8, 23, 8, 24, 8, 25, 8, 26, 8, 27, 8, 28, 8, 29, 8, 30, 8, 31, 8, 32, 8, 33, 8, 34, 8, 35, 8, 36, 8, 37, 8, 38, 8, 39, 8, 40, 8, 41, 8, 42, 8, 43, 8, 44, 8, 45, 8, 46, 8, 47, 8, 48, 8, 49, 8, 50, 8, 51, 8, 52, 8, 65536, 8, 65571, 8, 65572, 8, 65575, 8, 65576, 8, 65577, 8, 65578, 8, 65579, 8, 65582, 8, 65583, 8, 65584, 8, 65585, 8, 131072, 8, 131107, 8, 131108, 8, 131111, 8, 131112, 8, 131113, 8, 131114, 8, 131115, 8, 131118, 8, 131119, 8, 131120, 8, 131121, 8, 196608, 8, 196641, 8, 196642, 8, 196650, 8, 196651, 8, 196655, 8, 196656, 8, 262144, 8, 262177, 8, 262178, 8, 262186, 8, 262187, 8, 262191, 8, 327680, 8, 327713, 8, 327714, 8, 327722, 8, 327723, 8, 327727, 8, 393216, 8, 393237, 8, 393238, 8, 393239, 8, 393240, 8, 393249, 8, 393250, 8, 393258, 8, 393259, 8, 393263, 8, 458752, 8, 458765, 8, 458773, 8, 458776, 8, 458778, 8, 458785, 8, 458786, 8, 458790, 8, 458791, 8, 458792, 8, 458793, 8, 458794, 8, 458795, 8, 458799, 8, 458800, 8, 458801, 8, 524288, 8, 524299, 8, 524301, 8, 524303, 8, 524307, 8, 524308, 8, 524309, 8, 524312, 8, 524313, 8, 524314, 8, 524322, 8, 524323, 8, 524340, 8, 524341, 8, 589824, 8, 589833, 8, 589835, 8, 589837, 8, 589839, 8, 589841, 8, 655360, 8, 655361, 7, 655363, 7, 655364, 7, 655365, 7, 655367, 7, 655369, 7, 655371, 7, 655373, 7, 655374, 7, 655375, 7, 655376, 7, 655377, 7, 655378, 7, 655379, 7, 655381, 7, 655382, 7, 655384, 7, 655385, 7, 655387, 7, 655389, 7, 655391, 7, 655393, 7, 655395, 7, 655397, 7, 655399, 7, 655401, 7, 655402, 7, 655403, 7, 655404, 7, 655406, 7, 655408, 7, 655410, 7, 655412, 7, 655414, 7, 720896, 8, 720942, 8, 786432, 8, 786433, 8, 786434, 8, 786435, 8, 786436, 8, 786437, 8, 786438, 8, 786439, 8, 786440, 8, 786441, 8, 786442, 8, 786443, 8, 786444, 8, 786445, 8, 786446, 8, 786447, 8, 786448, 8, 786449, 8, 786450, 8, 786451, 8, 786452, 8, 786453, 8, 786454, 8, 786455, 8, 786456, 8, 786457, 8, 786458, 8, 786459, 8, 786460, 8, 786461, 8, 786462, 8, 786463, 8, 786464, 8, 786465, 8, 786466, 8, 786467, 8, 786468, 8, 786469, 8, 786470, 8, 786471, 8, 786472, 8, 786473, 8, 786474, 8, 786475, 8, 786476, 8, 786477, 8, 786478, 8, 1048585, 7, 1048586, 7, 1048587, 7 )
+tile_data = IntArray( 0, 8, 1, 8, 2, 8, 3, 8, 4, 8, 5, 8, 6, 8, 7, 8, 8, 8, 9, 8, 10, 8, 11, 8, 12, 8, 13, 8, 14, 8, 15, 8, 16, 8, 17, 8, 18, 8, 19, 8, 20, 8, 21, 8, 22, 8, 23, 8, 24, 8, 25, 8, 26, 8, 27, 8, 28, 8, 29, 8, 30, 8, 31, 8, 32, 8, 33, 8, 34, 8, 35, 8, 36, 8, 37, 8, 38, 8, 39, 8, 40, 8, 41, 8, 42, 8, 43, 8, 44, 8, 45, 8, 46, 8, 47, 8, 48, 8, 49, 8, 50, 8, 51, 8, 52, 8, 53, 8, 54, 8, 55, 8, 56, 8, 57, 8, 58, 8, 59, 8, 60, 8, 61, 8, 62, 8, 63, 8, 64, 8, 65, 8, 66, 8, 67, 8, 68, 8, 69, 8, 70, 8, 71, 8, 72, 8, 73, 8, 74, 8, 75, 8, 76, 8, 77, 8, 78, 8, 79, 8, 80, 8, 81, 8, 82, 8, 83, 8, 84, 8, 85, 8, 86, 8, 87, 8, 88, 8, 89, 8, 90, 8, 91, 8, 92, 8, 93, 8, 94, 8, 95, 8, 96, 8, 97, 8, 98, 8, 99, 8, 100, 8, 101, 8, 102, 8, 103, 8, 104, 8, 105, 8, 106, 8, 107, 8, 108, 8, 109, 8, 110, 8, 111, 8, 112, 8, 113, 8, 114, 8, 115, 8, 116, 8, 117, 8, 118, 8, 119, 8, 120, 8, 121, 8, 122, 8, 123, 8, 124, 8, 125, 8, 126, 8, 127, 8, 128, 8, 129, 8, 130, 8, 131, 8, 132, 8, 133, 8, 134, 8, 135, 8, 136, 8, 143, 8, 144, 8, 145, 8, 146, 8, 147, 8, 148, 8, 149, 8, 150, 8, 151, 8, 152, 8, 153, 8, 154, 8, 155, 8, 156, 8, 157, 8, 158, 8, 159, 8, 160, 8, 161, 8, 162, 8, 163, 8, 164, 8, 168, 8, 169, 8, 170, 8, 171, 8, 65536, 8, 65571, 8, 65572, 8, 65575, 8, 65576, 8, 65577, 8, 65578, 8, 65579, 8, 65582, 8, 65583, 8, 65584, 8, 65585, 8, 65678, 8, 65685, 8, 65686, 8, 65687, 8, 65707, 8, 131072, 8, 131107, 8, 131108, 8, 131111, 8, 131112, 8, 131113, 8, 131114, 8, 131115, 8, 131118, 8, 131119, 8, 131120, 8, 131121, 8, 131221, 8, 131222, 8, 131223, 8, 131243, 8, 196608, 8, 196641, 8, 196642, 8, 196650, 8, 196651, 8, 196655, 8, 196656, 8, 196736, 6, 196741, 8, 196743, 8, 196745, 8, 196748, 5, 196757, 8, 196758, 8, 196759, 8, 196779, 8, 262144, 8, 262177, 8, 262178, 8, 262186, 8, 262187, 8, 262191, 8, 262293, 8, 262294, 8, 262295, 8, 262315, 8, 327680, 8, 327713, 8, 327714, 8, 327722, 8, 327723, 8, 327727, 8, 327829, 8, 327830, 8, 327831, 8, 327851, 8, 393216, 8, 393237, 8, 393238, 8, 393239, 8, 393240, 8, 393249, 8, 393250, 8, 393258, 8, 393259, 8, 393263, 8, 393351, 8, 393352, 8, 393353, 8, 393354, 8, 393355, 8, 393365, 8, 393366, 8, 393367, 8, 393387, 8, 458752, 8, 458765, 8, 458773, 8, 458776, 8, 458778, 8, 458785, 8, 458786, 8, 458790, 8, 458791, 8, 458792, 8, 458793, 8, 458794, 8, 458795, 8, 458799, 8, 458800, 8, 458801, 8, 458807, 5, 458877, 8, 458878, 8, 458880, 6, 458901, 8, 458902, 8, 458903, 8, 458923, 8, 524288, 8, 524299, 8, 524301, 8, 524303, 8, 524307, 8, 524308, 8, 524309, 8, 524312, 8, 524313, 8, 524314, 8, 524322, 8, 524323, 8, 524340, 8, 524341, 8, 524412, 8, 524413, 8, 524414, 8, 524429, 8, 524430, 8, 524431, 8, 524437, 8, 524438, 8, 524439, 8, 524459, 8, 589824, 8, 589833, 8, 589835, 8, 589837, 8, 589839, 8, 589841, 8, 589947, 8, 589948, 8, 589949, 8, 589950, 8, 589965, 8, 589966, 8, 589967, 8, 589973, 8, 589974, 8, 589975, 8, 589995, 8, 655360, 8, 655361, 7, 655363, 7, 655364, 7, 655365, 7, 655367, 7, 655369, 7, 655371, 7, 655373, 7, 655374, 7, 655375, 7, 655376, 7, 655377, 7, 655378, 7, 655379, 7, 655381, 7, 655382, 7, 655384, 7, 655385, 7, 655387, 7, 655389, 7, 655391, 7, 655393, 7, 655395, 7, 655397, 7, 655399, 7, 655401, 7, 655402, 7, 655403, 7, 655404, 7, 655406, 7, 655408, 7, 655410, 7, 655412, 7, 655414, 7, 655419, 7, 655423, 7, 655427, 7, 655428, 7, 655430, 7, 655432, 7, 655434, 7, 655435, 7, 655436, 7, 655437, 7, 655438, 7, 655439, 7, 655440, 7, 655441, 7, 655442, 7, 655443, 7, 655444, 7, 655446, 7, 655448, 7, 655449, 7, 655450, 7, 655451, 7, 655452, 7, 655454, 7, 655456, 7, 655458, 7, 655460, 7, 655462, 7, 655465, 6, 655471, 7, 655473, 7, 655475, 7, 655477, 7, 655479, 7, 655481, 7, 655483, 7, 655485, 7, 655494, 7, 655496, 7, 655498, 7, 655500, 7, 655502, 7, 655503, 7, 655505, 7, 655507, 7, 655509, 8, 655510, 8, 655511, 8, 655512, 7, 655514, 7, 655516, 7, 655518, 7, 655519, 7, 655521, 7, 655523, 7, 655525, 7, 655527, 7, 655529, 7, 655531, 8, 720896, 8, 720942, 8, 721002, 8, 721003, 8, 721024, 6, 721045, 8, 721046, 8, 721047, 8, 721067, 8, 786432, 8, 786433, 8, 786434, 8, 786435, 8, 786436, 8, 786437, 8, 786438, 8, 786439, 8, 786440, 8, 786441, 8, 786442, 8, 786443, 8, 786444, 8, 786445, 8, 786446, 8, 786447, 8, 786448, 8, 786449, 8, 786450, 8, 786451, 8, 786452, 8, 786453, 8, 786454, 8, 786455, 8, 786456, 8, 786457, 8, 786458, 8, 786459, 8, 786460, 8, 786461, 8, 786462, 8, 786463, 8, 786464, 8, 786465, 8, 786466, 8, 786467, 8, 786468, 8, 786469, 8, 786470, 8, 786471, 8, 786472, 8, 786473, 8, 786474, 8, 786475, 8, 786476, 8, 786477, 8, 786478, 8, 786479, 8, 786480, 8, 786481, 8, 786482, 8, 786483, 8, 786484, 8, 786485, 8, 786486, 8, 786487, 8, 786499, 8, 786500, 8, 786501, 8, 786502, 8, 786503, 8, 786504, 8, 786505, 8, 786506, 8, 786507, 8, 786508, 8, 786509, 8, 786510, 8, 786511, 8, 786512, 8, 786513, 8, 786514, 8, 786515, 8, 786516, 8, 786517, 8, 786518, 8, 786519, 8, 786520, 8, 786521, 8, 786522, 8, 786523, 8, 786524, 8, 786525, 8, 786526, 8, 786527, 8, 786528, 8, 786529, 8, 786530, 8, 786531, 8, 786532, 8, 786533, 8, 786534, 8, 786535, 8, 786538, 8, 786539, 8, 786543, 8, 786544, 8, 786545, 8, 786546, 8, 786547, 8, 786548, 8, 786549, 8, 786550, 8, 786551, 8, 786552, 8, 786553, 8, 786554, 8, 786555, 8, 786556, 8, 786557, 8, 786558, 8, 786566, 8, 786567, 8, 786568, 8, 786569, 8, 786570, 8, 786571, 8, 786572, 8, 786573, 8, 786574, 8, 786575, 8, 786576, 8, 786577, 8, 786578, 8, 786579, 8, 786580, 8, 786581, 8, 786582, 8, 786583, 8, 786584, 8, 786585, 8, 786586, 8, 786587, 8, 786588, 8, 786589, 8, 786590, 8, 786591, 8, 786592, 8, 786593, 8, 786594, 8, 786595, 8, 786596, 8, 786597, 8, 786598, 8, 786599, 8, 786600, 8, 786601, 8, 786602, 8, 786603, 8, 1048585, 7, 1048586, 7, 1048587, 7 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 100, 400 )
+
+[node name="LevelCentrale" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 8410, 460 )
+
+[node name="CoinsView" type="CanvasLayer" parent="."]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="CoinsCollected" type="Label" parent="CoinsView"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 11.0
+margin/top = 62.0
+margin/right = 58.0
+margin/bottom = 76.0
+text = "Coins : "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CoinsTotal" type="Label" parent="CoinsView"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 65.0
+margin/top = 62.0
+margin/right = 105.0
+margin/bottom = 76.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Time" type="RichTextLabel" parent="CoinsView"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 26.0
+margin/right = 143.0
+margin/bottom = 66.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+script/script = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="CoinsView/Time"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="LifeInfo" parent="." instance=ExtResource( 7 )]
+
+[node name="Ennemies" type="Node" parent="."]
+
+[node name="ennemy" parent="Ennemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 390, 490 )
+
+[node name="ennemy 2" parent="Ennemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1500, 490 )
+
+[node name="ennemy 4" parent="Ennemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2300, 490 )
+
+[node name="ennemy 5" parent="Ennemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 5000, 490 )
+
+[node name="ennemy 6" parent="Ennemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 5300, 490 )
+
+[node name="ennemy 7" parent="Ennemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 6700, 490 )
+
+[node name="ennemy 8" parent="Ennemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 7700, 490 )
+
+[node name="Coins" type="Node" parent="."]
+
+editor/display_folded = true
+
+[node name="Jeton1" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1100, 380 )
+
+[node name="Jeton1 2" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1400, 380 )
+
+[node name="Jeton1 3" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1200, 230 )
+
+[node name="Jeton1 4" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1250, 230 )
+
+[node name="Jeton1 5" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1300, 230 )
+
+[node name="Jeton1 6" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1350, 230 )
+
+[node name="Jeton1 7" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2150, 300 )
+
+[node name="Jeton1 8" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2200, 300 )
+
+[node name="Jeton1 9" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2250, 300 )
+
+[node name="Jeton1 10" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 2690, 330 )
+
+[node name="Jeton1 11" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 3080, 300 )
+
+[node name="Jeton1 12" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 3130, 300 )
+
+[node name="Jeton1 13" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 3180, 300 )
+
+[node name="Jeton1 14" parent="Coins" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 3230, 300 )
+
+[connection signal="timeout" from="CoinsView/Time/Timer" to="CoinsView/Time" method="_on_Timer_timeout"]
 
 
