@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Scenes/Levels/Level4/Stage.gd" type="Script" id=1]
 [ext_resource path="res://Objets/tilesetMario.xml" type="TileSet" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Objets/LifeInfo.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Levels/Level1/Jeton2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Levels/Level4/Time.gd" type="Script" id=10]
-[ext_resource path="res://Sounds/sound_level4.ogg" type="AudioStream" id=11]
 
 [node name="Level4" type="Node2D"]
 
@@ -174,7 +173,6 @@ transform/pos = Vector2( 4020, 140 )
 
 [node name="CoinsView" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -231,17 +229,6 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = true
-
-[node name="Music" type="StreamPlayer" parent="."]
-
-stream/stream = ExtResource( 11 )
-stream/play = false
-stream/loop = true
-stream/volume_db = 0.0
-stream/autoplay = true
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
 
 [connection signal="timeout" from="CoinsView/Time/Timer" to="CoinsView/Time" method="_on_Timer_timeout"]
 
