@@ -39,7 +39,7 @@ transform/pos = Vector2( 315.034, 500.437 )
 
 [node name="Level2" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 471.75, 500.452 )
+transform/pos = Vector2( 430.753, 500.452 )
 
 [node name="Music" type="StreamPlayer" parent="."]
 
@@ -69,5 +69,9 @@ transform/pos = Vector2( 778.618, 503.098 )
 [node name="LevelCentrale" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1123.48, 1051.02 )
+
+[node name="Level3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 530.322, 502.061 )
 
 
