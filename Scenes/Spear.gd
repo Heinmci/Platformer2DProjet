@@ -6,3 +6,5 @@ extends Node2D
 
 func _ready():
 	get_node("AnimationPlayer").play("top_down_anmation")
+	if (Globals.get("has_spear")):
+        queue_free()

@@ -11,6 +11,7 @@ const TOP_JUMP_TIME = 0.1 # in seconds
 var number_of_lifes = 1
 var anim = ""
 var siding_left = false
+var weapon_equipped
 
 var popup_shown = false
 
@@ -31,6 +32,7 @@ func _ready():
 		armed = Globals.get("has_sword")
 	if Globals.get("has_spear"):
 		armed = Globals.get("has_spear")
+	weapon_equipped = Globals.get("equipped_weapon")
  
 func _fixed_process(delta):
     if (number_of_lifes == 0):
@@ -47,12 +49,13 @@ func apply_force(state):
     # Move Left
     if(Input.is_action_pressed("ui_left")):
         directional_force += DIRECTION.LEFT
+        print(Globals.get("equipped_weapon"))
         if (!armed):
             new_anim = "runv2"
         else:
-            if Globals.get("has_sword"):
+            if Globals.get("equipped_weapon") == "sword":
                 new_anim = "run_armed"
-            if Globals.get("has_spear"):
+            if Globals.get("equipped_weapon") == "spear":
                new_anim = "run_with_spear"
         new_siding_left = true
      
@@ -62,9 +65,9 @@ func apply_force(state):
         if (!armed):
             new_anim = "runv2"
         else:
-            if Globals.get("has_sword"):
-               new_anim = "run_armed"
-            if Globals.get("has_spear"):
+            if Globals.get("equipped_weapon") == "sword":
+                new_anim = "run_armed"
+            if Globals.get("equipped_weapon") == "spear":
                new_anim = "run_with_spear"
         new_siding_left = false
      
@@ -104,10 +107,10 @@ func apply_force(state):
     if Input.is_action_pressed("attack"):
         get_node("AnimationPlayer").stop()
         if (armed): 
-            if Globals.get("has_sword") == true:
+            if Globals.get("equipped_weapon") == "sword":
                 get_node("AnimationPlayer").play("attack")
-            if Globals.get("has_spear") == true:
-                get_node("AnimationPlayer").play("attack_with_spear")
+            if Globals.get("equipped_weapon") == "spear":
+               get_node("AnimationPlayer").play("attack_with_spear")
             get_node("attack_ennemy_check").show()
     else:
         get_node("attack_ennemy_check").hide()
@@ -127,30 +130,14 @@ func _on_ground_check_body_exit( body ):
 func _on_item_check_area_enter( area ):
 	if (area.get_name() == "sword_check"):
 		Globals.set("has_sword",true)
-		deal_with_inventory()
-		if !Globals.get("has_spear"):
-			area.get_parent().queue_free()
-			armed = true
-			Globals.set("has_sword",true)
-			Globals.set("has_spear",false)
-		else:
-			if Input.is_action_pressed("e_key"):
-				area.get_parent().queue_free()
-				armed = true
-				Globals.set("has_sword",true)
-				Globals.set("has_spear",false)
+		deal_with_inventory_sword()
+		armed = true
+		get_parent().get_node("Sword").queue_free()
 	if (area.get_name() == "spear_check"):
-		if !Globals.get("has_sword"):
-			area.get_parent().queue_free()
-			armed = true
-			Globals.set("has_spear",true)
-			Globals.set("has_sword",false)
-		else:
-			if Input.is_action_pressed("e_key"):
-				area.get_parent().queue_free()
-				armed = true
-				Globals.set("has_spear",true)
-				Globals.set("has_sword",false)
+		Globals.set("has_spear",true)
+		deal_with_inventory_spear()
+		armed = true
+		get_parent().get_node("Spear").queue_free()
 	if (area.get_name() == "obstacle_check"):
 		number_of_lifes -= 1
 		Globals.set("number_of_lifes", number_of_lifes)
@@ -162,7 +149,7 @@ func _on_attack_ennemy_check_area_enter( area ):
     if get_node("attack_ennemy_check").is_visible():
         print(area.get_name())
 
-func deal_with_inventory():
+func deal_with_inventory_sword():
 	var itemlist = get_node("Camera2D/Inventory/Items")
 	var sword_in_inventory = false
 	for i in range(itemlist.get_item_count()):
@@ -172,3 +159,12 @@ func deal_with_inventory():
 		var sword_image = preload("res://Images/sword.png")
 		itemlist.add_item("Sword",sword_image,true)
 
+func deal_with_inventory_spear():
+	var itemlist = get_node("Camera2D/Inventory/Items")
+	var sword_in_inventory = false
+	for i in range(itemlist.get_item_count()):
+		if (itemlist.get_item_text(i) == "Spear"):
+			sword_in_inventory = true
+	if (!sword_in_inventory):
+		var sword_image = preload("res://Images/small_spear.png")
+		itemlist.add_item("Spear",sword_image,true)

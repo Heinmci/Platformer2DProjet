@@ -29,11 +29,13 @@ func save():
 	var savedict = {
 		number_of_lifes=Globals.get("number_of_lifes"),
 		has_sword=Globals.get("has_sword"),
+		has_spear=Globals.get("has_spear"),
 		current_level=Globals.get("current_level"),
 		LevelCentrale_apple=Globals.get("LevelCentrale_apple"),
 		Level1_apple=Globals.get("Level1_apple"),
 		Level2_apple=Globals.get("Level2_apple"),
-		coins_collected=Globals.get("coins_collected")
+		coins_collected=Globals.get("coins_collected"),
+		equipped_weapon=Globals.get("equipped_weapon")
 	}
 	return savedict
 

@@ -20,11 +20,13 @@ func _on_LoadGame_pressed():
 func init_globals():
 	Globals.set("number_of_lifes",1)
 	Globals.set("has_sword",false)
+	Globals.set("has_spear",false)
 	Globals.set("current_level",1)
 	Globals.set("Level1_apple",false)
 	Globals.set("level2_apple",false)
 	Globals.set("LevelCentrale_apple",false)
 	Globals.set("coins_collected",0)
+	Globals.set("equipped_weapon","none")
 	
 func load_game():
 	var savegame = File.new()
@@ -36,9 +38,11 @@ func load_game():
 		currentline.parse_json(savegame.get_line())
 		Globals.set("number_of_lifes",currentline["number_of_lifes"])
 		Globals.set("has_sword",currentline["has_sword"])
+		Globals.set("has_spear",currentline["has_spear"])
 		Globals.set("current_level",currentline["current_level"])
 		Globals.set("Level1_apple",currentline["Level1_apple"])
 		Globals.set("Level2_apple",currentline["Level2_apple"])
 		Globals.set("LevelCentrale_apple",currentline["LevelCentrale_apple"])
 		Globals.set("coins_collected",currentline["coins_collected"])
+		Globals.set("equipped_weapon",currentline["equipped_weapon"])
 	savegame.close()

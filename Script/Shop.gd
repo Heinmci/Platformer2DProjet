@@ -33,10 +33,10 @@ func _input(event):
 		selected_something()
 func setup_shop():
 	var apple = preload("res://Images/apple.png")
-	itemlist.add_item("1 life for 5 coins",apple,true)
+	itemlist.add_item("1 life for " + str(life_cost) + " coins",apple,true)
 	
 func selected_something():
-	if (itemlist.get_item_text(selected_item) == "1 life for 5 coins"):
+	if (itemlist.get_item_text(selected_item) == "1 life for " + str(life_cost) + " coins"):
 		get_parent().get_node("BuyResult").show()
 		var player_coins = Globals.get("coins_collected")
 		if (player_coins >= life_cost):

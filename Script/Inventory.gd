@@ -21,6 +21,9 @@ func _ready():
 	if (Globals.get("has_sword")):
 		var sword_image = preload("res://Images/sword.png")
 		itemlist.add_item("Sword",sword_image,true)
+	if (Globals.get("has_spear")):
+		var sword_image = preload("res://Images/small_spear.png")
+		itemlist.add_item("Spear",sword_image,true)
 	set_hidden(true)
 	pass
 
@@ -46,6 +49,9 @@ func _input(event):
 		if (selected_item -1 >= 0):
 			selected_item -=1
 			get_node("Items").select(selected_item,true)
+	elif(event.is_action_pressed("ui_accept")):
+		print("aeazeaze")
+		selected_something()
 
 
 func update_inventory_info():
@@ -54,3 +60,11 @@ func update_inventory_info():
 			itemlist.set_item_text(i,"Lives (" + str(Globals.get("number_of_lifes")) + ")")
 		elif (itemlist.get_item_text(i).findn("Coins") != -1):
 			itemlist.set_item_text(1,"Coins (" + str(Globals.get("coins_collected")) + ")")
+
+func selected_something():
+	print(itemlist.get_item_text(selected_item))
+	if (itemlist.get_item_text(selected_item) == "Sword"):
+		Globals.set("equipped_weapon","sword")
+		print(Globals.get("equipped_weapon"))
+	if (itemlist.get_item_text(selected_item) == "Spear"):
+		Globals.set("equipped_weapon","spear")
