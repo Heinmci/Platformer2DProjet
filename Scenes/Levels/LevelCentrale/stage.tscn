@@ -35,11 +35,15 @@ z/z = 10
 
 [node name="Level1" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 315.034, 500.437 )
+transform/pos = Vector2( 250, 500.437 )
 
 [node name="Level2" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 471.75, 500.452 )
+transform/pos = Vector2( 350, 500.452 )
+
+[node name="Level3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 450, 500 )
 
 [node name="Music" type="StreamPlayer" parent="."]
 
