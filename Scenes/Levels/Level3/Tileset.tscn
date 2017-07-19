@@ -73,7 +73,6 @@ _update_shape_index = 0
 
 [node name="Floor_blue" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 2000, 200 )
 transform/scale = Vector2( 25.3969, 25.3969 )
 texture = ExtResource( 1 )
@@ -137,7 +136,6 @@ _update_shape_index = 0
 
 [node name="Passage_green" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 3400, 400 )
 transform/scale = Vector2( 25.3969, 25.3969 )
 texture = ExtResource( 1 )
@@ -146,12 +144,11 @@ region_rect = Rect2( 0, 128, 32, 33 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Passage_green"]
 
-editor/display_folded = true
 transform/pos = Vector2( -0.143084, 3.53371 )
 transform/scale = Vector2( 0.673946, 0.728962 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 2.4003, 0, 0, 2.28743, 0.113186, -5.12589 )
+shapes/0/transform = Matrix32( 2.67528, 0, 0, 2.72239, 1.05362, -6.59151 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -162,8 +159,8 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Passage_green/StaticBody2D"]
 
-transform/pos = Vector2( 0.113186, -5.12589 )
-transform/scale = Vector2( 2.4003, 2.28743 )
+transform/pos = Vector2( 1.05362, -6.59151 )
+transform/scale = Vector2( 2.67528, 2.72239 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
@@ -264,5 +261,13 @@ transform/scale = Vector2( 2.55013, 2.5668 )
 shape = SubResource( 7 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Water_blue" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1500, 1200 )
+transform/scale = Vector2( 25.3969, 25.3969 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 49, 320, 14, 30 )
 
 
