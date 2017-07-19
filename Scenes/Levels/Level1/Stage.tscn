@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://Scenes/Stage1.gd" type="Script" id=1]
 [ext_resource path="res://Objets/tileset.xml" type="TileSet" id=2]
@@ -11,16 +11,9 @@
 [ext_resource path="res://Scenes/moving_platform.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/sound_level1.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Objets/tileset4.xml" type="TileSet" id=11]
-[ext_resource path="res://Images/castledoors.png" type="Texture" id=12]
-[ext_resource path="res://Objets/Apple.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Objets/LifeInfo.tscn" type="PackedScene" id=15]
-
-[sub_resource type="CapsuleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
+[ext_resource path="res://Objets/Apple.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objets/Door.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objets/LifeInfo.tscn" type="PackedScene" id=14]
 
 [node name="Level1" type="Node2D"]
 
@@ -141,11 +134,9 @@ autostart = true
 
 [node name="Ennemis" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="Ennemi1" parent="Ennemis" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 700, 830 )
+transform/pos = Vector2( 1500, 830 )
 transform/scale = Vector2( 1, 0.837654 )
 
 [node name="Ennemi2" parent="Ennemis" instance=ExtResource( 5 )]
@@ -154,11 +145,11 @@ transform/pos = Vector2( 2090, 1030 )
 
 [node name="Ennemi3" parent="Ennemis" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 230, 830 )
+transform/pos = Vector2( 800, 830 )
 
 [node name="Ennemy4" parent="Ennemis" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 160, 285 )
+transform/pos = Vector2( 230, 285 )
 
 [node name="Ennemi5" parent="Ennemis" instance=ExtResource( 5 )]
 
@@ -188,7 +179,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 851968, 536870912, 917504, 536870912, 983040, 536870912, 1048576, 536870912, 1114175, 2, 1114176, 1, 1114177, 1, 1114178, 1, 1114179, 1, 1114180, 1, 1114181, 1, 1179710, 2, 1179711, 0, 1179712, 0, 1179713, 0, 1179714, 0, 1179715, 0, 1179716, 0, 1179717, 0, 1245245, 2, 1245246, 0, 1245247, 0, 1245248, 0, 1245253, 0, 1310780, 2, 1310781, 0, 1310782, 0, 1310783, 0, 1310784, 0, 1310789, 0, 1376320, 0, 1376325, 0 )
+tile_data = IntArray( 35, 4, 36, 4, 37, 4, 38, 4, 39, 4, 40, 4, 41, 4, 42, 4, 43, 4, 44, 4, 45, 4, 46, 4, 47, 4, 48, 4, 49, 4, 50, 4, 51, 4, 52, 4, 53, 4, 54, 4, 55, 4, 56, 4, 57, 4, 58, 4, 59, 4, 60, 4, 61, 4, 62, 4, 63, 4, 64, 4, 65, 4, 66, 4, 67, 4, 68, 4, 69, 0, 70, 0, 65605, 0, 65606, 0, 131141, 0, 131142, 0, 196677, 0, 196678, 0, 262213, 0, 262214, 0, 327749, 0, 327750, 0, 393285, 0, 393286, 0, 458821, 0, 458822, 0, 524357, 0, 524358, 0, 589893, 0, 589894, 0, 655429, 0, 655430, 0, 720965, 0, 720966, 0, 786501, 0, 786502, 0, 851968, 536870912, 852037, 0, 852038, 0, 917504, 536870912, 917573, 0, 917574, 0, 983040, 536870912, 983109, 0, 983110, 0, 1048576, 536870912, 1048645, 0, 1048646, 0, 1114175, 2, 1114176, 1, 1114177, 1, 1114178, 1, 1114179, 1, 1114180, 1, 1114181, 0, 1114182, 0, 1179710, 2, 1179711, 0, 1179712, 0, 1179713, 0, 1179714, 0, 1179715, 0, 1179716, 0, 1179717, 0, 1179718, 0, 1245245, 2, 1245246, 0, 1245247, 0, 1245248, 0, 1245253, 0, 1245254, 0, 1310780, 2, 1310781, 0, 1310782, 0, 1310783, 0, 1310784, 0, 1310789, 0, 1310790, 0, 1376320, 0, 1376321, 0, 1376322, 0, 1376323, 0, 1376324, 0, 1376325, 0, 1376326, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 
@@ -421,59 +412,16 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 524319, 0, 524323, 0, 524327, 0, 655391, 0, 655395, 0, 655399, 0, 786463, 0, 786467, 0, 786471, 0, 983068, 0 )
 
-[node name="Area2D" type="Area2D" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 3400, 805 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.73368, 0, 0, 2.92536, 0.529297, 13.2533 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="Sprite" type="Sprite" parent="Area2D"]
-
-texture = ExtResource( 12 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-
-transform/pos = Vector2( 0.529297, 13.2533 )
-transform/scale = Vector2( 3.73368, 2.92536 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[node name="YOUWIN" type="Label" parent="."]
-
-visibility/visible = false
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 3300.0
-margin/top = 730.0
-margin/right = 3478.0
-margin/bottom = 744.0
-text = "Congratulations ! You WIN..."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Apple" parent="." instance=ExtResource( 13 )]
+[node name="Apple" parent="." instance=ExtResource( 12 )]
 
 transform/pos = Vector2( 582.381, 349.873 )
 
-[node name="LevelCentrale" parent="." instance=ExtResource( 14 )]
+[node name="LevelCentrale" parent="." instance=ExtResource( 13 )]
 
 transform/pos = Vector2( 3277.27, 803.553 )
 
-[node name="LifeInfo" parent="." instance=ExtResource( 15 )]
+[node name="LifeInfo" parent="." instance=ExtResource( 14 )]
 
 [connection signal="timeout" from="CoinsView/Time/Timer" to="CoinsView/Time" method="_on_Timer_timeout"]
-
-[connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
 
