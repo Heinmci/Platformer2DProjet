@@ -8,6 +8,8 @@ var scene_path = ""
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+
+	
 	set_process_input(true)
 	get_parent().get_node("DoorLabel").set_text(get_parent().get_name())
 	if (get_parent().get_parent().get_name() == "LevelCentrale"):
@@ -36,7 +38,7 @@ func determine_hidden_state():
 		var current_level = Globals.get("current_level")
 		var door_level = int(get_parent().get_name()[5])
 		if (current_level < door_level):
-			get_parent().hide()
+			get_parent().queue_free()
 
 func _on_Area2D_body_enter( body ):
 	if (body.get_name() == "Player"):
