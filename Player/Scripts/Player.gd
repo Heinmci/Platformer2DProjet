@@ -49,7 +49,6 @@ func apply_force(state):
     # Move Left
     if(Input.is_action_pressed("ui_left")):
         directional_force += DIRECTION.LEFT
-        print(Globals.get("equipped_weapon"))
         if (!armed):
             new_anim = "runv2"
         else:
@@ -142,6 +141,7 @@ func _on_item_check_area_enter( area ):
 		number_of_lifes -= 1
 		Globals.set("number_of_lifes", number_of_lifes)
 		get_parent().get_node("LifeInfo/Label").set_text(str("Number of lives : ", number_of_lifes))
+		get_tree().change_scene("res://Scenes/Levels/" + get_parent().get_name() + "/Stage.tscn")
 
 
 
