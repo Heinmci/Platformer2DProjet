@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Objets/tileset3.xml" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -7,11 +7,15 @@
 [ext_resource path="res://Objets/Apple.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objets/LifeInfo.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objets/SavePanel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Images/cloudsinthedesert.png" type="Texture" id=8]
+[ext_resource path="res://Images/coldmountain.png" type="Texture" id=9]
+[ext_resource path="res://Images/wizardtower.png" type="Texture" id=10]
 
 [node name="LevelCentrale" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 
+transform/pos = Vector2( -42.3543, 0.814514 )
 mode = 0
 tile_set = ExtResource( 1 )
 cell/size = Vector2( 50, 50 )
@@ -77,5 +81,47 @@ transform/pos = Vector2( 530.322, 502.061 )
 [node name="Level4" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 625.89, 501.568 )
+
+[node name="Painting1" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 116.0
+margin/top = 317.0
+margin/right = 211.0
+margin/bottom = 390.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 0
+
+[node name="Painting2" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 338.0
+margin/top = 277.0
+margin/right = 631.0
+margin/bottom = 411.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 0
+
+[node name="Painting3" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 780.0
+margin/top = 307.0
+margin/right = 948.0
+margin/bottom = 413.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 0
 
 
